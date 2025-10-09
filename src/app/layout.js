@@ -2,10 +2,13 @@ import { Jost } from "next/font/google";
 import StyledComponentsRegistry from "@/components/StyledComponentsRegistry";
 import GlobalStyles from "@/components/GlobalStyles";
 import { DESCRIPTION, TITLE } from "@/constants";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Header from "@/components/Header";
 
 const jost = Jost({
   variable: "--font-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -18,7 +21,12 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <StyledComponentsRegistry>
         <GlobalStyles />
-        <body className={`${jost.variable}`}>{children}</body>
+        <body className={`${jost.variable}`}>
+          <MaxWidthWrapper>
+            <Header />
+            <main>{children}</main>
+          </MaxWidthWrapper>
+        </body>
       </StyledComponentsRegistry>
     </html>
   );
