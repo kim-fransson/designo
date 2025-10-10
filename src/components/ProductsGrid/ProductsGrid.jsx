@@ -12,7 +12,7 @@ function ProductsGrid() {
         const ProductWrapper =
           product.variant === "tall" ? TallProduct : Product;
         return (
-          <ProductWrapper key={product.id}>
+          <ProductWrapper key={product.id} href={product.href}>
             <ImageWrapper>
               <ProductImage
                 src={product.image}
@@ -23,10 +23,8 @@ function ProductsGrid() {
             </ImageWrapper>
             <InnerProductWrapper>
               <Title>{product.title}</Title>
-              <LinkWrapper>
-                <ProductLink href={product.href}>
-                  View projects
-                </ProductLink>
+              <TextWrapper>
+                <Text href={product.href}>View projects</Text>
                 <IconWrapper>
                   <Icon
                     src='/images/shared/desktop/icon-right-arrow.svg'
@@ -35,7 +33,7 @@ function ProductsGrid() {
                     alt=''
                   />
                 </IconWrapper>
-              </LinkWrapper>
+              </TextWrapper>
             </InnerProductWrapper>
           </ProductWrapper>
         );
@@ -51,8 +49,16 @@ const Wrapper = styled.section`
   gap: 24px 30px;
 `;
 
-const Product = styled.article`
+const Product = styled(Link)`
   position: relative;
+  text-decoration: none;
+  border-radius: 15px;
+
+  /* Better focus visibility */
+  outline-offset: 4px;
+
+  /* Show border radius */
+  overflow: hidden;
 `;
 
 const TallProduct = styled(Product)`
@@ -78,14 +84,13 @@ const Title = styled.h2`
   text-transform: uppercase;
 `;
 
-const LinkWrapper = styled.div`
+const TextWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
 `;
 
-const ProductLink = styled(Link)`
-  text-decoration: none;
+const Text = styled.span`
   color: var(--color-white);
   font-weight: ${WEIGHTS.medium};
   font-size: ${15 / 16}rem;
@@ -94,19 +99,37 @@ const ProductLink = styled(Link)`
   text-transform: uppercase;
 `;
 
-const IconWrapper = styled.div``;
+const IconWrapper = styled.div`
+  transition: transform 500ms ease-in;
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    ${Product}:hover &, ${Product}:focus-visible & {
+      transform: translateX(8px) scale(1.3);
+      transition: transform 200ms ease-out;
+    }
+  }
+`;
 const Icon = styled(Image)``;
 
 const ImageWrapper = styled.div`
   position: absolute;
   inset: 0;
-  filter: brightness(0.5);
+  filter: brightness(50%);
+  will-change: transform;
+  transition: transform 400ms ease-in, filter 800ms ease-in;
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    ${Product}:hover &, ${Product}:focus-visible & {
+      transform: scale(1.1);
+      filter: brightness(70%);
+      transition: transform 200ms ease-out, filter 400ms ease-out;
+    }
+  }
 `;
 
 const ProductImage = styled(Image)`
   height: 100%;
   object-fit: cover;
-  border-radius: 15px;
 `;
 
 export default ProductsGrid;
