@@ -41,9 +41,11 @@ const RevealableBackground = styled(Background)`
   will-change: transform;
   transition: clip-path 1000ms ease;
 
-  ${Wrapper}:hover & {
-    transition: clip-path 500ms ease;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  @media (hover: hover) {
+    ${Wrapper}:hover & {
+      transition: clip-path 500ms ease;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
   }
 `;
 
