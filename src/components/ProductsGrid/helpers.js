@@ -1,0 +1,32 @@
+export const products = [
+  {
+    id: "web",
+    title: "Web Design",
+    image: "/images/home/desktop/image-web-design-large.jpg",
+    alt: "An open laptop viewed from above.",
+    href: "/products/web",
+    width: 541,
+    height: 640,
+    variant: "tall",
+  },
+  {
+    id: "app",
+    title: "App Design",
+    image: "/images/home/desktop/image-app-design.jpg",
+    alt: "A hand holding up a smart phone viewed from below.",
+    href: "/products/app",
+    width: 541,
+    height: 308,
+    variant: "normal",
+  },
+  {
+    id: "graphic",
+    title: "Graphic Design",
+    image: "/images/home/desktop/image-graphic-design.jpg",
+    alt: "Abstract art",
+    href: "/products/design",
+    width: 541,
+    height: 308,
+    variant: "normal",
+  },
+];
