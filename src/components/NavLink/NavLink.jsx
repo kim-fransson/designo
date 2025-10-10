@@ -38,6 +38,7 @@ const SlideInText = styled(Text)`
   --underline-offset: 4px;
   position: absolute;
   inset: 0;
+  will-change: transform;
   transition: clip-path 1000ms ease;
   clip-path: polygon(
     0% 0%,
