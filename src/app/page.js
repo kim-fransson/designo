@@ -1,6 +1,7 @@
 "use client";
 
-import LearnMoreCard from "@/components/LearnMoreCard";
+import GetInTouch from "@/components/GetInTouch";
+import LearnMore from "@/components/LearnMore";
 import OurValues from "@/components/OurValues";
 import ProductsGrid from "@/components/ProductsGrid";
 import VisuallyHidden from "@/components/VisuallyHidden";
@@ -12,9 +13,11 @@ export default function Home() {
       <VisuallyHidden>
         <h1>Home</h1>
       </VisuallyHidden>
-      <LearnMoreCard />
+      <LearnMore />
       <ProductsGrid />
       <OurValues />
+      <GetInTouch />
+      <div />
     </Wrapper>
   );
 }

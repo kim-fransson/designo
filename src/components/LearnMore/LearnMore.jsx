@@ -11,7 +11,7 @@ import { fadeIn } from "@/animations";
 /*
   Currently there is contrast errors for Heading and Text
 */
-function LearnMoreCard() {
+function LearnMore() {
   return (
     <Wrapper>
       <InnerWrapper>
@@ -51,7 +51,7 @@ to {
 }
 `;
 
-const Wrapper = styled.article`
+const Wrapper = styled.section`
   position: relative;
   padding: 140px 95px 145px 95px;
   background: var(--color-peach);
@@ -84,9 +84,8 @@ const Heading = styled.h2`
 `;
 
 const Text = styled.p`
-  font-size: 1rem;
   line-height: ${26 / 16}rem;
-  max-width: 440px;
+  max-width: ${440 / 16}rem;
   margin-bottom: 40px;
 `;
 
@@ -108,4 +107,4 @@ const ImageWrapper = styled.div`
   } */
 `;
 
-export default LearnMoreCard;
+export default LearnMore;

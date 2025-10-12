@@ -73,6 +73,7 @@ const InnerProductWrapper = styled.div`
   justify-items: center;
   height: 100%;
   place-content: center;
+  text-align: center;
 `;
 
 const Title = styled.h2`

@@ -55,6 +55,7 @@ const Text = styled.span`
   line-height: ${22 / 16}rem;
   letter-spacing: ${1 / 16}rem;
   text-transform: uppercase;
+  white-space: nowrap;
 `;
 
 export default Button;
