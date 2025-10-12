@@ -18,7 +18,7 @@ function ProductsGrid() {
                 src={product.image}
                 width={product.width}
                 height={product.height}
-                alt={product.alt}
+                alt=''
               />
             </ImageWrapper>
             <InnerProductWrapper>

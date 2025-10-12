@@ -32,7 +32,7 @@ function LearnMoreCard() {
               src='/images/home/desktop/image-hero-phone.png'
               width={624}
               height={913}
-              alt='A smart phone displaying the text FRAME in front of decorative vases'
+              alt=''
             />
           </ImageWrapper>
         </Perspective>
