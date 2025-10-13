@@ -27,6 +27,7 @@ function LearnMore() {
         </Button>
         <ImageWrapper>
           <Image
+            priority={true}
             src='/images/home/desktop/image-hero-phone.png'
             width={624}
             height={913}

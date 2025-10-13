@@ -18,6 +18,7 @@ function Button({ children, ...delegated }) {
 }
 
 const Wrapper = styled.button`
+  display: block;
   position: relative;
   text-decoration: none;
 `;

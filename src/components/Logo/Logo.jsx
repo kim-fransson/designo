@@ -11,6 +11,7 @@ function Logo({ variant = "light" }) {
         height={54}
         src={`/images/shared/desktop/logo-${variant}.png`}
         alt='Designo lgo - Home'
+        priority={true}
       />
     </Link>
   );
