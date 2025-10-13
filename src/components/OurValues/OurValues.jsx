@@ -4,10 +4,14 @@ import { WEIGHTS } from "@/constants";
 import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
+import VisuallyHidden from "../VisuallyHidden";
 
 function OurValues() {
   return (
     <Wrapper>
+      <VisuallyHidden as='div'>
+        <h2>Our values</h2>
+      </VisuallyHidden>
       <ValueWrapper>
         <PassionateImageWrapper>
           <Illustration
@@ -94,7 +98,7 @@ const FriendlyImageWrapper = styled(ImageWrapper)`
 const Illustration = styled(Image)`
   transform: rotate(calc(-1 * var(--rotation-offset)));
 `;
-const Title = styled.h2`
+const Title = styled.h3`
   margin-top: 46px;
   font-weight: ${WEIGHTS.medium};
   font-size: ${20 / 16}rem;

@@ -4,10 +4,14 @@ import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { products } from "./helpers";
+import VisuallyHidden from "../VisuallyHidden";
 
 function ProductsGrid() {
   return (
     <Wrapper>
+      <VisuallyHidden as='div'>
+        <h2>Our products</h2>
+      </VisuallyHidden>
       {products.map((product) => {
         const ProductWrapper =
           product.variant === "tall" ? TallProduct : Product;
@@ -85,7 +89,7 @@ const InnerProductWrapper = styled.div`
   text-align: center;
 `;
 
-const Title = styled.h2`
+const Title = styled.h3`
   font-weight: ${WEIGHTS.medium};
   font-size: ${40 / 16}rem;
   line-height: ${48 / 16}rem;

@@ -10,7 +10,7 @@ import styled from "styled-components";
 export default function Home() {
   return (
     <Wrapper>
-      <VisuallyHidden>
+      <VisuallyHidden as='div'>
         <h1>Home</h1>
       </VisuallyHidden>
       <LearnMore />
@@ -50,7 +50,7 @@ const LeafOne = styled(Leaf)`
 `;
 
 const LeafTwo = styled(Leaf)`
-  left: 434px;
+  right: 0px;
   top: 1879px;
   transform: rotate(180deg);
 `;
