@@ -140,7 +140,7 @@ const Location = styled.div`
   background: var(--color-light-peach);
   padding: 85px 95px;
   border-radius: 15px;
-  background: hsla(14, 77%, 97%, 1);
+  background: hsl(14deg, 77%, 97%);
   background-image: url("/images/shared/desktop/bg-pattern-two-circles.svg");
   background-repeat: no-repeat;
   background-position: left bottom;

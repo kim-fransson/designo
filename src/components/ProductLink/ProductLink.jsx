@@ -3,57 +3,39 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import VisuallyHidden from "../VisuallyHidden";
-import { products } from "@/products";
 
-function ProductsGrid() {
+function ProductLink({ product }) {
   return (
-    <Wrapper>
-      <VisuallyHidden as='div'>
-        <h2>Our products</h2>
-      </VisuallyHidden>
-      {products.map((product) => {
-        const ProductWrapper =
-          product.variant === "tall" ? TallProduct : Product;
-        return (
-          <ProductWrapper key={product.id} href={product.href}>
-            <ImageWrapper>
-              <ProductImage
-                src={product.image}
-                width={product.width}
-                height={product.height}
-                alt=''
-              />
-            </ImageWrapper>
-            <InnerProductWrapper>
-              <Title>{product.title}</Title>
-              <TextWrapper>
-                <Text href={product.href}>View projects</Text>
-                <IconWrapper>
-                  <Icon
-                    src='/images/shared/desktop/icon-right-arrow.svg'
-                    width={7}
-                    height={10}
-                    alt=''
-                  />
-                </IconWrapper>
-              </TextWrapper>
-            </InnerProductWrapper>
-          </ProductWrapper>
-        );
-      })}
+    <Wrapper href={product.href}>
+      <ImageWrapper>
+        <ProductImage
+          src={product.image}
+          width={product.width}
+          height={product.height}
+          alt=''
+        />
+      </ImageWrapper>
+      <InnerProductWrapper>
+        <Title>{product.title}</Title>
+        <TextWrapper>
+          <Text href={product.href}>View projects</Text>
+          <IconWrapper>
+            <Icon
+              src='/images/shared/desktop/icon-right-arrow.svg'
+              width={7}
+              height={10}
+              alt=''
+            />
+          </IconWrapper>
+        </TextWrapper>
+      </InnerProductWrapper>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 308px 308px;
-  gap: 24px 30px;
-`;
-
-const Product = styled(Link)`
+const Wrapper = styled(Link)`
+  height: 100%;
+  display: block;
   position: relative;
   text-decoration: none;
   border-radius: 15px;
@@ -72,11 +54,6 @@ const Product = styled(Link)`
       transition-delay: 100ms;
     }
   }
-`;
-
-const TallProduct = styled(Product)`
-  grid-column: 1 / 1;
-  grid-row: 1 / -1;
 `;
 
 const InnerProductWrapper = styled.div`
@@ -117,7 +94,7 @@ const IconWrapper = styled.div`
   transition: transform 500ms ease-in;
 
   @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-    ${Product}:hover &, ${Product}:focus-visible & {
+    ${Wrapper}:hover &, ${Wrapper}:focus-visible & {
       transform: translateX(8px) scale(1.3);
       transition: transform 200ms ease-out;
     }
@@ -133,7 +110,7 @@ const ImageWrapper = styled.div`
   transition: transform 400ms ease-in;
 
   @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-    ${Product}:hover &, ${Product}:focus-visible & {
+    ${Wrapper}:hover &, ${Wrapper}:focus-visible & {
       transform: scale(1.1);
       transition: transform 200ms ease-out;
     }
@@ -145,4 +122,4 @@ const ProductImage = styled(Image)`
   object-fit: cover;
 `;
 
-export default ProductsGrid;
+export default ProductLink;
