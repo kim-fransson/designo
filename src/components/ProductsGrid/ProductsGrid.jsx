@@ -53,12 +53,21 @@ const Product = styled(Link)`
   position: relative;
   text-decoration: none;
   border-radius: 15px;
-
   /* Better focus visibility */
   outline-offset: 4px;
-
   /* Show border radius */
   overflow: hidden;
+  background: var(--color-black);
+  transition: background 1000ms ease-in;
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    &:hover,
+    &:focus-visible {
+      background: var(--color-peach);
+      transition: background 500ms ease-out;
+      transition-delay: 100ms;
+    }
+  }
 `;
 
 const TallProduct = styled(Product)`
@@ -115,15 +124,14 @@ const Icon = styled(Image)``;
 const ImageWrapper = styled.div`
   position: absolute;
   inset: 0;
-  filter: brightness(50%);
+  opacity: 40%;
   will-change: transform;
-  transition: transform 400ms ease-in, filter 800ms ease-in;
+  transition: transform 400ms ease-in;
 
   @media (hover: hover) and (prefers-reduced-motion: no-preference) {
     ${Product}:hover &, ${Product}:focus-visible & {
       transform: scale(1.1);
-      filter: brightness(70%);
-      transition: transform 200ms ease-out, filter 400ms ease-out;
+      transition: transform 200ms ease-out;
     }
   }
 `;
