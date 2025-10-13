@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { products } from "./helpers";
 import VisuallyHidden from "../VisuallyHidden";
+import { products } from "@/products";
 
 function ProductsGrid() {
   return (
