@@ -4,6 +4,7 @@ import GlobalStyles from "@/components/GlobalStyles";
 import { DESCRIPTION, TITLE } from "@/constants";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const jost = Jost({
   variable: "--font-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
             <Header />
             <main>{children}</main>
           </MaxWidthWrapper>
+          <Footer />
         </body>
       </StyledComponentsRegistry>
     </html>

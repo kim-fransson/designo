@@ -16,10 +16,11 @@ export default function Home() {
       <LearnMore />
       <ProductsGrid />
       <OurValues />
-      <GetInTouch />
+      <GetInTouchWrapper>
+        <GetInTouch />
+      </GetInTouchWrapper>
       <LeafOne />
       <LeafTwo />
-      <div />
     </Wrapper>
   );
 }
@@ -28,6 +29,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 160px;
+`;
+
+const GetInTouchWrapper = styled.div`
+  margin-bottom: -75px;
 `;
 
 const Leaf = styled.div`

@@ -8,6 +8,7 @@ export const COLORS = {
 };
 
 export const WEIGHTS = {
+  bold: 700,
   medium: 500,
   regular: 400,
 };
