@@ -54,6 +54,8 @@ function Product({ product }) {
         <GetInTouchWrapper>
           <GetInTouch />
         </GetInTouchWrapper>
+
+        <Leaf />
       </Wrapper>
     </>
   );
@@ -80,9 +82,9 @@ const Header = styled.header`
       case "web":
         return "right center";
       case "app":
-        return "left center";
+        return "-25% center";
       case "design":
-        return "left center";
+        return "-25% center";
     }
   }};
 
@@ -120,6 +122,17 @@ const ProductLinks = styled.div`
 
 const GetInTouchWrapper = styled.div`
   margin-bottom: -75px;
+`;
+
+const Leaf = styled.div`
+  position: absolute;
+  z-index: -1;
+  background-image: url("/images/shared/desktop/bg-pattern-leaf.svg");
+  background-repeat: no-repeat;
+  width: 1006px;
+  height: 594px;
+  left: 0px;
+  top: 281px;
 `;
 
 export default Product;
