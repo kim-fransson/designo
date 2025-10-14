@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         <body className={`${jost.variable}`}>
           <MaxWidthWrapper>
             <Header />
-            <main>{children}</main>
+            {children}
           </MaxWidthWrapper>
           <Footer />
         </body>

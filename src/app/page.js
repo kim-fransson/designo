@@ -1,39 +1,29 @@
 "use client";
 
-import GetInTouch from "@/components/GetInTouch";
 import LearnMore from "@/components/LearnMore";
+import MainWrapper from "@/components/MainWrapper";
 import OurValues from "@/components/OurValues";
 import ProductLinks from "@/components/ProductLinks";
 import VisuallyHidden from "@/components/VisuallyHidden";
+import { usePathname } from "next/navigation";
 import styled from "styled-components";
 
 export default function Home() {
+  const pathname = usePathname();
+  const showContactUs = pathname !== "/contact";
   return (
-    <Wrapper>
+    <MainWrapper showContactUs={showContactUs}>
       <VisuallyHidden as='div'>
         <h1>Home</h1>
       </VisuallyHidden>
       <LearnMore />
       <ProductLinks />
       <OurValues />
-      <GetInTouchWrapper>
-        <GetInTouch />
-      </GetInTouchWrapper>
       <LeafOne />
       <LeafTwo />
-    </Wrapper>
+    </MainWrapper>
   );
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 160px;
-`;
-
-const GetInTouchWrapper = styled.div`
-  margin-bottom: -75px;
-`;
 
 const Leaf = styled.div`
   position: absolute;
