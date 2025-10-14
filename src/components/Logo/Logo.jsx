@@ -12,6 +12,7 @@ function Logo({ variant = "light" }) {
         src={`/images/shared/desktop/logo-${variant}.png`}
         alt='Designo lgo - Home'
         priority={true}
+        fetchPriority='high'
       />
     </Link>
   );

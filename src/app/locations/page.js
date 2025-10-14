@@ -5,6 +5,7 @@ import VisuallyHidden from "@/components/VisuallyHidden";
 import { WEIGHTS } from "@/constants";
 import Image from "next/image";
 import styled from "styled-components";
+import { locations } from "./locations";
 
 export default function Locations() {
   return (
@@ -12,99 +13,57 @@ export default function Locations() {
       <VisuallyHidden as='div'>
         <h1>Locations</h1>
       </VisuallyHidden>
+
       <LocationsWrapper>
-        <LocationWrapper>
-          <Location>
-            <Heading>Canada</Heading>
-            <TextWrapper>
-              <Address>
-                <Title>Designo Central Office</Title>
-                <Text>3886 Wellington Street</Text>
-                <Text>Toronto, Ontario M9C 3J5</Text>
-              </Address>
+        {locations.map((location) => (
+          <LocationWrapper key={location.country}>
+            {location.imagePosition === "left" && (
+              <ImageWrapper>
+                <Image
+                  src={location.image}
+                  alt=''
+                  width={375}
+                  height={320}
+                />
+              </ImageWrapper>
+            )}
 
-              <ContactLinks>
-                <Title>Contact</Title>
-                <ContactLink href='tel:+12538638967'>
-                  P : +1 253-863-8967
-                </ContactLink>
-                <ContactLink href='mailto:contact@designo.co'>
-                  M : contact@designo.co
-                </ContactLink>
-              </ContactLinks>
-            </TextWrapper>
-          </Location>
-          <ImageWrapper>
-            <Image
-              src='/images/locations/desktop/image-map-canada.png'
-              alt=''
-              width={375}
-              height={320}
-            />
-          </ImageWrapper>
-        </LocationWrapper>
+            <Location>
+              <Heading>{location.country}</Heading>
+              <TextWrapper>
+                <Address>
+                  <Title>{location.officeName}</Title>
+                  {location.address.map((line, i) => (
+                    <Text key={i}>{line}</Text>
+                  ))}
+                </Address>
 
-        <LocationWrapper>
-          <ImageWrapper>
-            <Image
-              src='/images/locations/desktop/image-map-australia.png'
-              alt=''
-              width={375}
-              height={320}
-            />
-          </ImageWrapper>
-          <Location>
-            <Heading>Australia</Heading>
-            <TextWrapper>
-              <Address>
-                <Title>Designo AU Office</Title>
-                <Text>19 Balonne Street</Text>
-                <Text>New South Wales 2443</Text>
-              </Address>
+                <ContactLinks>
+                  <Title>Contact</Title>
+                  <ContactLink href={`tel:${location.contact.phone}`}>
+                    P : {location.contact.phone}
+                  </ContactLink>
+                  <ContactLink
+                    href={`mailto:${location.contact.email}`}
+                  >
+                    M : {location.contact.email}
+                  </ContactLink>
+                </ContactLinks>
+              </TextWrapper>
+            </Location>
 
-              <ContactLinks>
-                <Title>Contact</Title>
-                <ContactLink href='tel:+61267209092'>
-                  P: (02) 6720 9092
-                </ContactLink>
-                <ContactLink href='mailto:contact@designo.au'>
-                  M : contact@designo.au
-                </ContactLink>
-              </ContactLinks>
-            </TextWrapper>
-          </Location>
-        </LocationWrapper>
-
-        <LocationWrapper>
-          <Location>
-            <Heading>United Kingdom</Heading>
-            <TextWrapper>
-              <Address>
-                <Title>Designo UK Office</Title>
-                <Text>13 Colorado Way</Text>
-                <Text>Rhyd-y-fro SA8 9GA</Text>
-              </Address>
-
-              <ContactLinks>
-                <Title>Contact</Title>
-                <ContactLink href='tel:+447831151400'>
-                  P : 078 3115 1400
-                </ContactLink>
-                <ContactLink href='mailto:contact@designo.co'>
-                  M : contact@designo.uk
-                </ContactLink>
-              </ContactLinks>
-            </TextWrapper>
-          </Location>
-          <ImageWrapper>
-            <Image
-              src='/images/locations/desktop/image-map-united-kingdom.png'
-              alt=''
-              width={375}
-              height={320}
-            />
-          </ImageWrapper>
-        </LocationWrapper>
+            {location.imagePosition === "right" && (
+              <ImageWrapper>
+                <Image
+                  src={location.image}
+                  alt=''
+                  width={375}
+                  height={320}
+                />
+              </ImageWrapper>
+            )}
+          </LocationWrapper>
+        ))}
       </LocationsWrapper>
 
       <GetInTouchWrapper>
@@ -140,7 +99,7 @@ const Location = styled.div`
   background: var(--color-light-peach);
   padding: 85px 95px;
   border-radius: 15px;
-  background: hsl(14deg, 77%, 97%);
+  background: var(--color-very-light-peach);
   background-image: url("/images/shared/desktop/bg-pattern-two-circles.svg");
   background-repeat: no-repeat;
   background-position: left bottom;

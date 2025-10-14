@@ -23,7 +23,6 @@ const Wrapper = styled.article`
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-
   /* show border radius */
   overflow: hidden;
 `;
@@ -42,7 +41,7 @@ const TextWrapper = styled.div`
   padding: 32px;
   flex-direction: column;
   align-items: center;
-  background: hsl(14deg, 77%, 97%);
+  background: var(--color-very-light-peach);
   color: var(--color-dark-gray);
 `;
 const Title = styled.h3`

@@ -1,6 +1,7 @@
 export const COLORS = {
   peach: "11deg 73% 66%",
   "light-peach": "11deg 100% 81%",
+  "very-light-peach": "14deg 77% 97%",
   black: "270deg 4% 12%",
   "dark-gray": "264deg 5% 20%",
   "light-gray": "200deg 11% 96%",

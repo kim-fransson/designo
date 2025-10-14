@@ -28,6 +28,7 @@ function LearnMore() {
         <ImageWrapper>
           <Image
             priority={true}
+            fetchPriority='high'
             src='/images/home/desktop/image-hero-phone.png'
             width={624}
             height={913}

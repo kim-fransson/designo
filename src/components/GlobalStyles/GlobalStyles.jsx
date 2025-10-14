@@ -58,6 +58,7 @@ html {
   --color-peach: hsl(${COLORS.peach});
   --color-black: hsl(${COLORS.black});
   --color-light-peach: hsl(${COLORS["light-peach"]});
+  --color-very-light-peach: hsl(${COLORS["very-light-peach"]});
   --color-light-gray: hsl(${COLORS["light-gray"]});
   --color-dark-gray: hsl(${COLORS["dark-gray"]});
 }

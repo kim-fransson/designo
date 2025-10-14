@@ -8,40 +8,54 @@ import { products } from "@/products";
 import ProductLink from "../ProductLink";
 import Project from "../Project";
 import VisuallyHidden from "../VisuallyHidden";
+import Image from "next/image";
 
 function Product({ product }) {
   const { title, description, id, background, projects } = product;
   return (
-    <Wrapper>
-      <Header id={id} background={background}>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
-      </Header>
-
-      <VisuallyHidden as='div'>
-        <h2>Our projects</h2>
+    <>
+      {/* priority fetch the background image for header */}
+      <VisuallyHidden>
+        <Image
+          priority={true}
+          fetchPriority='high'
+          src={background}
+          width={876}
+          height={584}
+          alt=''
+        />
       </VisuallyHidden>
-      <ProjectList>
-        {projects.map((project) => (
-          <Project key={project.title} {...project} />
-        ))}
-      </ProjectList>
+      <Wrapper>
+        <Header id={id} background={background}>
+          <Title>{title}</Title>
+          <Description>{description}</Description>
+        </Header>
 
-      <ProductLinks>
-        {products
-          .filter((p) => p.id !== id)
-          .map((otherProduct) => (
-            <ProductLink
-              key={otherProduct.id}
-              product={otherProduct}
-            />
+        <VisuallyHidden as='div'>
+          <h2>Our projects</h2>
+        </VisuallyHidden>
+        <ProjectList>
+          {projects.map((project) => (
+            <Project key={project.title} {...project} />
           ))}
-      </ProductLinks>
+        </ProjectList>
 
-      <GetInTouchWrapper>
-        <GetInTouch />
-      </GetInTouchWrapper>
-    </Wrapper>
+        <ProductLinks>
+          {products
+            .filter((p) => p.id !== id)
+            .map((otherProduct) => (
+              <ProductLink
+                key={otherProduct.id}
+                product={otherProduct}
+              />
+            ))}
+        </ProductLinks>
+
+        <GetInTouchWrapper>
+          <GetInTouch />
+        </GetInTouchWrapper>
+      </Wrapper>
+    </>
   );
 }
 
