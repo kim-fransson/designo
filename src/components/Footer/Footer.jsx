@@ -7,10 +7,15 @@ import Logo from "../Logo";
 import NavLink from "../NavLink";
 import { WEIGHTS } from "@/constants";
 import SocialLink from "../SocialLink";
+import { usePathname } from "next/navigation";
 
 function Footer() {
+  const pathname = usePathname();
+  const showContactUs = pathname !== "/contact";
   return (
-    <Wrapper>
+    <Wrapper
+      style={{ "--padding-top": showContactUs ? "144px" : "72px" }}
+    >
       <MaxWidthWrapper as='div'>
         <TopRow>
           <Logo />
@@ -52,7 +57,7 @@ function Footer() {
 const Wrapper = styled.footer`
   background: var(--color-black);
   color: var(--color-white);
-  padding-top: 144px;
+  padding-top: var(--padding-top);
   padding-bottom: 72px;
 `;
 

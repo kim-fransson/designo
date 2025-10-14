@@ -39,6 +39,7 @@ const Wrapper = styled.button`
 `;
 
 const Background = styled.div`
+  width: 100%;
   display: grid;
   place-content: center;
   height: ${56 / 16}rem;

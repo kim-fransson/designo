@@ -4,6 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import GetInTouch from "../GetInTouch";
 import { usePathname } from "next/navigation";
+import Spacer from "../Spacer";
 
 function MainWrapper({ children }) {
   const pathname = usePathname();
@@ -11,10 +12,12 @@ function MainWrapper({ children }) {
   return (
     <Wrapper>
       {children}
-      {showContactUs && (
+      {showContactUs ? (
         <GetInTouchWrapper>
           <GetInTouch />
         </GetInTouchWrapper>
+      ) : (
+        <Spacer y={160} />
       )}
     </Wrapper>
   );

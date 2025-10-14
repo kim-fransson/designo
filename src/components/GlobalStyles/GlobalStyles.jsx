@@ -67,6 +67,7 @@ body {
   font-family: var(--font-sans);
   color: var(--color-dark-gray);
   background: var(--color-white);
+  overflow-x: hidden;
 }
 
 html, body {
