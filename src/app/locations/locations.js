@@ -1,5 +1,6 @@
 export const locations = [
   {
+    id: "canada",
     country: "Canada",
     officeName: "Designo Central Office",
     address: ["3886 Wellington Street", "Toronto, Ontario M9C 3J5"],
@@ -11,6 +12,7 @@ export const locations = [
     imagePosition: "right", // used to alternate layout if needed
   },
   {
+    id: "australia",
     country: "Australia",
     officeName: "Designo AU Office",
     address: ["19 Balonne Street", "New South Wales 2443"],
@@ -22,6 +24,7 @@ export const locations = [
     imagePosition: "left",
   },
   {
+    id: "united-kingdom",
     country: "United Kingdom",
     officeName: "Designo UK Office",
     address: ["13 Colorado Way", "Rhyd-y-fro SA8 9GA"],

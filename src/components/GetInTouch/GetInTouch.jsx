@@ -16,11 +16,9 @@ function GetInTouch() {
           find out how our expertise can help your business grow.
         </Text>
       </TextWrapper>
-      <ButtonWrapper>
-        <Button as={Link} href='/contact'>
-          Get in touch
-        </Button>
-      </ButtonWrapper>
+      <Button as={Link} href='/contact'>
+        Get in touch
+      </Button>
     </Wrapper>
   );
 }
@@ -56,10 +54,6 @@ const Title = styled.h2`
 const Text = styled.p`
   line-height: ${26 / 16}rem;
   max-width: ${459 / 16}rem;
-`;
-
-const ButtonWrapper = styled.div`
-  max-width: ${152 / 16}rem;
 `;
 
 export default GetInTouch;

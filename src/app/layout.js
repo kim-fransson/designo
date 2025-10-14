@@ -5,6 +5,7 @@ import { DESCRIPTION, TITLE } from "@/constants";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import MainWrapper from "@/components/MainWrapper";
 
 const jost = Jost({
   variable: "--font-sans",
@@ -25,7 +26,7 @@ export default function RootLayout({ children }) {
         <body className={`${jost.variable}`}>
           <MaxWidthWrapper>
             <Header />
-            {children}
+            <MainWrapper>{children}</MainWrapper>
           </MaxWidthWrapper>
           <Footer />
         </body>

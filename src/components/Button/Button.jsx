@@ -4,10 +4,21 @@ import { WEIGHTS } from "@/constants";
 import React from "react";
 import styled from "styled-components";
 
-function Button({ children, ...delegated }) {
+function Button({ children, color = "white", ...delegated }) {
   return (
     <Wrapper {...delegated}>
-      <Background>
+      <Background
+        style={{
+          "--background":
+            color === "peach"
+              ? "var(--color-peach)"
+              : "var(--color-white)",
+          "--color":
+            color === "peach"
+              ? "var(--color-white)"
+              : "var(--color-dark-gray)",
+        }}
+      >
         <Text>{children}</Text>
       </Background>
       <RevealableBackground>
@@ -18,17 +29,21 @@ function Button({ children, ...delegated }) {
 }
 
 const Wrapper = styled.button`
+  padding: 0;
+  border: none;
+  background: none;
   display: block;
   position: relative;
   text-decoration: none;
+  cursor: pointer;
 `;
 
 const Background = styled.div`
   display: grid;
   place-content: center;
   height: ${56 / 16}rem;
-  color: var(--color-dark-gray);
-  background: var(--color-white);
+  color: var(--color);
+  background: var(--background);
   padding: 0px 24px;
   border-radius: 8px;
 `;

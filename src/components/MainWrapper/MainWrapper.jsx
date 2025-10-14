@@ -3,8 +3,11 @@
 import React from "react";
 import styled from "styled-components";
 import GetInTouch from "../GetInTouch";
+import { usePathname } from "next/navigation";
 
-function MainWrapper({ children, showContactUs = true }) {
+function MainWrapper({ children }) {
+  const pathname = usePathname();
+  const showContactUs = pathname !== "/contact";
   return (
     <Wrapper>
       {children}

@@ -3,12 +3,12 @@
 import { WEIGHTS } from "@/constants";
 import React from "react";
 import styled from "styled-components";
-import GetInTouch from "../GetInTouch";
 import { products } from "@/products";
 import ProductLink from "../ProductLink";
 import Project from "../Project";
 import VisuallyHidden from "../VisuallyHidden";
 import Image from "next/image";
+import LeafBase from "../Leaf";
 
 function Product({ product }) {
   const { title, description, id, background, projects } = product;
@@ -40,6 +40,9 @@ function Product({ product }) {
           ))}
         </ProjectList>
 
+        <VisuallyHidden as='div'>
+          <h2>Our other products</h2>
+        </VisuallyHidden>
         <ProductLinks>
           {products
             .filter((p) => p.id !== id)
@@ -47,14 +50,10 @@ function Product({ product }) {
               <ProductLink
                 key={otherProduct.id}
                 product={otherProduct}
+                renderTitleAs='h3'
               />
             ))}
         </ProductLinks>
-
-        <GetInTouchWrapper>
-          <GetInTouch />
-        </GetInTouchWrapper>
-
         <Leaf />
       </Wrapper>
     </>
@@ -120,17 +119,7 @@ const ProductLinks = styled.div`
   gap: 30px;
 `;
 
-const GetInTouchWrapper = styled.div`
-  margin-bottom: -75px;
-`;
-
-const Leaf = styled.div`
-  position: absolute;
-  z-index: -1;
-  background-image: url("/images/shared/desktop/bg-pattern-leaf.svg");
-  background-repeat: no-repeat;
-  width: 1006px;
-  height: 594px;
+const Leaf = styled(LeafBase)`
   left: 0px;
   top: 281px;
 `;

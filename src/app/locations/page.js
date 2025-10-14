@@ -1,6 +1,5 @@
 "use client";
 
-import GetInTouch from "@/components/GetInTouch";
 import VisuallyHidden from "@/components/VisuallyHidden";
 import { WEIGHTS } from "@/constants";
 import Image from "next/image";
@@ -9,7 +8,7 @@ import { locations } from "./locations";
 
 export default function Locations() {
   return (
-    <Wrapper>
+    <>
       <VisuallyHidden as='div'>
         <h1>Locations</h1>
       </VisuallyHidden>
@@ -28,7 +27,7 @@ export default function Locations() {
               </ImageWrapper>
             )}
 
-            <Location>
+            <Location id={location.id}>
               <Heading>{location.country}</Heading>
               <TextWrapper>
                 <Address>
@@ -65,19 +64,9 @@ export default function Locations() {
           </LocationWrapper>
         ))}
       </LocationsWrapper>
-
-      <GetInTouchWrapper>
-        <GetInTouch />
-      </GetInTouchWrapper>
-    </Wrapper>
+    </>
   );
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 160px;
-`;
 
 const LocationsWrapper = styled.div`
   display: flex;
@@ -103,6 +92,7 @@ const Location = styled.div`
   background-image: url("/images/shared/desktop/bg-pattern-two-circles.svg");
   background-repeat: no-repeat;
   background-position: left bottom;
+  scroll-margin-top: 6rem;
 `;
 
 const Heading = styled.h2`
@@ -142,8 +132,4 @@ const ImageWrapper = styled.div`
   border-radius: 15px;
   /* show borders */
   overflow: hidden;
-`;
-
-const GetInTouchWrapper = styled.div`
-  margin-bottom: -75px;
 `;
