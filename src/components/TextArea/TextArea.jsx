@@ -13,7 +13,7 @@ import { fadeIn } from "@/animations";
 
 function TextArea({ placeholder, ...delegated }) {
   return (
-    <Wrapper autoComplete='off' {...delegated}>
+    <Wrapper {...delegated}>
       <InputWrapper>
         <TextAreaInput placeholder={placeholder} />
         <FieldError>
@@ -93,6 +93,10 @@ const FieldError = styled(AriaFieldError)`
 
   & svg {
     flex-shrink: 0;
+  }
+
+  @-moz-document url-prefix() {
+    padding-right: 12px;
   }
 `;
 
