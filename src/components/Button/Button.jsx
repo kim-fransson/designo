@@ -1,5 +1,6 @@
 "use client";
 
+import { Form } from "@/app/contact/page";
 import { WEIGHTS } from "@/constants";
 import React from "react";
 import styled from "styled-components";
@@ -47,6 +48,10 @@ const Background = styled.div`
   background: var(--background);
   padding: 0px 24px;
   border-radius: 8px;
+
+  form & {
+    padding: 0px 48px;
+  }
 `;
 
 const RevealableBackground = styled(Background)`
