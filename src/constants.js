@@ -15,16 +15,14 @@ export const WEIGHTS = {
 };
 
 export const BREAKPOINTS = {
-  phone: 600,
-  tablet: 950,
-  laptop: 1300,
+  phone: 768,
+  tablet: 1200,
 };
 
 // desktop-first
 export const QUERIES = {
   phoneAndSmaller: `(max-width: ${BREAKPOINTS.phone / 16}rem)`,
   tabletAndSmaller: `(max-width: ${BREAKPOINTS.tablet / 16}rem)`,
-  laptopAndSmaller: `max-width: ${BREAKPOINTS.laptop / 16}rem`,
 };
 
 export const TITLE = "Designo";

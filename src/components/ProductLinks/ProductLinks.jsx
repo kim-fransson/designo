@@ -6,20 +6,22 @@ import ProductLink from "../ProductLink/ProductLink";
 
 function ProductLinks() {
   return (
-    <Wrapper>
+    <>
       <VisuallyHidden as='div'>
         <h2>Our products</h2>
       </VisuallyHidden>
-      {products.map((product) => {
-        const ProductWrapper =
-          product.variant === "tall" ? TallProduct : Product;
-        return (
-          <ProductWrapper key={product.id}>
-            <ProductLink product={product} />
-          </ProductWrapper>
-        );
-      })}
-    </Wrapper>
+      <Wrapper>
+        {products.map((product) => {
+          const ProductWrapper =
+            product.variant === "tall" ? TallProduct : Product;
+          return (
+            <ProductWrapper key={product.id}>
+              <ProductLink product={product} />
+            </ProductWrapper>
+          );
+        })}
+      </Wrapper>
+    </>
   );
 }
 

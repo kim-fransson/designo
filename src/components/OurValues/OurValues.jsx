@@ -8,64 +8,66 @@ import VisuallyHidden from "../VisuallyHidden";
 
 function OurValues() {
   return (
-    <Wrapper>
+    <>
       <VisuallyHidden as='div'>
         <h2>Our values</h2>
       </VisuallyHidden>
-      <ValueWrapper>
-        <PassionateImageWrapper>
-          <Illustration
-            src='/images/home/desktop/illustration-passionate.svg'
-            width={202}
-            height={202}
-            alt=''
-          />
-        </PassionateImageWrapper>
-        <Title>Passionate</Title>
-        <Text>
-          Each project starts with an in-depth brand research to
-          ensure we only create products that serve a purpose. We
-          merge art, design, and technology into exciting new
-          solutions.
-        </Text>
-      </ValueWrapper>
+      <Wrapper>
+        <ValueWrapper>
+          <PassionateImageWrapper>
+            <Illustration
+              src='/images/home/desktop/illustration-passionate.svg'
+              width={202}
+              height={202}
+              alt=''
+            />
+          </PassionateImageWrapper>
+          <Title>Passionate</Title>
+          <Text>
+            Each project starts with an in-depth brand research to
+            ensure we only create products that serve a purpose. We
+            merge art, design, and technology into exciting new
+            solutions.
+          </Text>
+        </ValueWrapper>
 
-      <ValueWrapper>
-        <ResourceFulImageWrapper>
-          <Illustration
-            src='/images/home/desktop/illustration-resourceful.svg'
-            width={202}
-            height={202}
-            alt=''
-          />
-        </ResourceFulImageWrapper>
-        <Title>Resourceful</Title>
-        <Text>
-          Everything that we do has a strategic purpose. We use an
-          agile approach in all of our projects and value customer
-          collaboration. It guarantees superior results that fulfill
-          our clients’ needs.
-        </Text>
-      </ValueWrapper>
+        <ValueWrapper>
+          <ResourceFulImageWrapper>
+            <Illustration
+              src='/images/home/desktop/illustration-resourceful.svg'
+              width={202}
+              height={202}
+              alt=''
+            />
+          </ResourceFulImageWrapper>
+          <Title>Resourceful</Title>
+          <Text>
+            Everything that we do has a strategic purpose. We use an
+            agile approach in all of our projects and value customer
+            collaboration. It guarantees superior results that fulfill
+            our clients’ needs.
+          </Text>
+        </ValueWrapper>
 
-      <ValueWrapper>
-        <FriendlyImageWrapper>
-          <Illustration
-            src='/images/home/desktop/illustration-friendly.svg'
-            width={202}
-            height={202}
-            alt=''
-          />
-        </FriendlyImageWrapper>
-        <Title>Friendly</Title>
-        <Text>
-          We are a group of enthusiastic folks who know how to put
-          people first. Our success depends on our customers, and we
-          strive to give them the best experience a company can
-          provide.
-        </Text>
-      </ValueWrapper>
-    </Wrapper>
+        <ValueWrapper>
+          <FriendlyImageWrapper>
+            <Illustration
+              src='/images/home/desktop/illustration-friendly.svg'
+              width={202}
+              height={202}
+              alt=''
+            />
+          </FriendlyImageWrapper>
+          <Title>Friendly</Title>
+          <Text>
+            We are a group of enthusiastic folks who know how to put
+            people first. Our success depends on our customers, and we
+            strive to give them the best experience a company can
+            provide.
+          </Text>
+        </ValueWrapper>
+      </Wrapper>
+    </>
   );
 }
 

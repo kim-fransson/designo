@@ -2,7 +2,6 @@
 
 import Leaf from "@/components/Leaf";
 import LearnMore from "@/components/LearnMore";
-import MainWrapper from "@/components/MainWrapper";
 import OurValues from "@/components/OurValues";
 import ProductLinks from "@/components/ProductLinks";
 import VisuallyHidden from "@/components/VisuallyHidden";

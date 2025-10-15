@@ -69,7 +69,7 @@ export default function ContactUs() {
               required: "Can’t be empty.",
               pattern: {
                 value: /\S+@\S+\.\S+/,
-                message: "Invalid email",
+                message: "Please use a valid email address",
               },
             }}
             render={({
@@ -87,7 +87,6 @@ export default function ContactUs() {
                 isRequired={true}
                 isInvalid={invalid}
                 error={error}
-                type='email'
               />
             )}
           />
@@ -98,7 +97,7 @@ export default function ContactUs() {
               required: "Can’t be empty.",
               pattern: {
                 value: /^\+?\d{6,15}$/,
-                message: "Invalid phone",
+                message: "Please use a valid phone number",
               },
             }}
             render={({
@@ -116,7 +115,6 @@ export default function ContactUs() {
                 isRequired={true}
                 isInvalid={invalid}
                 error={error}
-                type='tel'
               />
             )}
           />

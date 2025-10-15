@@ -1,6 +1,6 @@
 "use client";
 
-import { WEIGHTS } from "@/constants";
+import { QUERIES, WEIGHTS } from "@/constants";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
@@ -25,24 +25,25 @@ function LearnMore() {
         <Button as={Link} href='/about'>
           Learn more
         </Button>
-        <ImageWrapper>
-          <Image
-            priority={true}
-            fetchPriority='high'
-            src='/images/home/desktop/image-hero-phone.png'
-            width={624}
-            height={913}
-            alt=''
-          />
-        </ImageWrapper>
       </InnerWrapper>
+      <HeroImage
+        priority={true}
+        fetchPriority='high'
+        src='/images/home/desktop/image-hero-phone.png'
+        width={624}
+        height={913}
+        alt=''
+      />
     </Wrapper>
   );
 }
 
 const Wrapper = styled.section`
   position: relative;
-  padding: 140px 95px 145px 95px;
+  display: flex;
+  align-items: center;
+  height: ${640 / 16}rem;
+  padding-left: 64px;
   background: var(--color-peach);
   background-image: url("/images/home/desktop/bg-pattern-hero-home.svg");
   background-repeat: no-repeat;
@@ -52,33 +53,80 @@ const Wrapper = styled.section`
 
   /* Hide Hero Image overflow */
   overflow: hidden;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    flex-direction: column;
+    height: ${843 / 16}rem;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 60px;
+    background-position: 150px 50%;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 80px;
+    background-position: 0% 50%;
+    border-radius: 0px;
+  }
 `;
 
 const InnerWrapper = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: start;
-  max-width: 540px;
+  max-width: ${540 / 16}rem;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    align-items: center;
+    max-width: ${570 / 16}rem;
+  }
 `;
 
 const Heading = styled.h2`
   font-weight: ${WEIGHTS.medium};
-  font-size: ${48 / 16}rem;
-  line-height: ${48 / 16}rem;
+  font-size: clamp(2rem, 2vw + 1.25rem, 3rem);
+  line-height: clamp(2rem, 2vw + 1.25rem, 3rem);
   margin-bottom: 32px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    text-align: center;
+  }
 `;
 
 const Text = styled.p`
   line-height: ${26 / 16}rem;
   max-width: ${440 / 16}rem;
   margin-bottom: 40px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    margin-bottom: 24px;
+  }
 `;
 
-const ImageWrapper = styled.div`
-  object-fit: cover;
+const HeroImage = styled(Image)`
   position: absolute;
-  right: -74px;
-  top: -34px;
+  left: 560px;
+  top: -35px;
+  object-fit: cover;
+  pointer-events: none;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    top: 290px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    top: 300px;
+  }
 `;
 
 export default LearnMore;

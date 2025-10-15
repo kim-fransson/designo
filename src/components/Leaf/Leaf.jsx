@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { QUERIES } from "@/constants";
 import styled from "styled-components";
 
 const Leaf = styled.div`
@@ -10,6 +10,10 @@ const Leaf = styled.div`
   background-repeat: no-repeat;
   width: 1006px;
   height: 594px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    display: none;
+  }
 `;
 
 export default Leaf;

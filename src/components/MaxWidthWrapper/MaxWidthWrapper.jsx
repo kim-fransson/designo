@@ -1,5 +1,6 @@
 "use client";
 
+import { QUERIES } from "@/constants";
 import React from "react";
 import styled from "styled-components";
 
@@ -9,6 +10,10 @@ const MaxWidthWrapper = styled.div`
   margin: 0 auto;
   padding-left: var(--horizontal-padding);
   padding-right: var(--horizontal-padding);
+
+  @media ${QUERIES.phoneAndSmaller} {
+    --horizontal-padding: 0px;
+  }
 `;
 
 export default MaxWidthWrapper;
