@@ -11,13 +11,13 @@ import styled from "styled-components";
 import { WEIGHTS } from "@/constants";
 import { fadeIn } from "@/animations";
 
-function TextArea({ placeholder, ...delegated }) {
+function TextArea({ placeholder, ref, error, ...delegated }) {
   return (
-    <Wrapper {...delegated}>
+    <Wrapper validationBehavior='aria' {...delegated}>
       <InputWrapper>
-        <TextAreaInput placeholder={placeholder} />
+        <TextAreaInput ref={ref} placeholder={placeholder} />
         <FieldError>
-          Can’t be empty <ErrorIcon />
+          {error?.message} <ErrorIcon />
         </FieldError>
       </InputWrapper>
       <Divider />

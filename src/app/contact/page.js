@@ -8,12 +8,24 @@ import TextField from "@/components/TextField";
 import VisuallyHidden from "@/components/VisuallyHidden";
 import { WEIGHTS } from "@/constants";
 import { Form as AriaForm } from "react-aria-components";
+import { Controller, useForm } from "react-hook-form";
 import styled from "styled-components";
 
 export default function ContactUs() {
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
+  const { handleSubmit, control, reset } = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = (data) => {
+    window.alert(`Message sent ${JSON.stringify(data, null, 2)}`);
+    reset();
+  };
+
   return (
     <>
       <Hero>
@@ -26,34 +38,97 @@ export default function ContactUs() {
             that’s relatable to your users, drop us a line.
           </Text>
         </TextWrapper>
-        <Form onSubmit={handleSubmit}>
-          <TextField
-            placeholder='Name'
-            aria-label='Name'
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <Controller
+            control={control}
             name='name'
-            type='text'
-            isRequired={true}
+            rules={{ required: "Can’t be empty." }}
+            render={({
+              field: { name, value, onChange, onBlur, ref },
+              fieldState: { invalid, error },
+            }) => (
+              <TextField
+                ref={ref}
+                placeholder='Name'
+                aria-label='Name'
+                name={name}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+                isRequired={true}
+                isInvalid={invalid}
+                error={error}
+              />
+            )}
           />
-          <TextField
-            placeholder='Email Address'
-            aria-label='Email Address'
+
+          <Controller
+            control={control}
             name='email'
-            type='email'
-            isRequired={true}
+            rules={{ required: "Can’t be empty." }}
+            render={({
+              field: { name, value, onChange, onBlur, ref },
+              fieldState: { invalid, error },
+            }) => (
+              <TextField
+                ref={ref}
+                placeholder='Email'
+                aria-label='Email'
+                name={name}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+                isRequired={true}
+                isInvalid={invalid}
+                error={error}
+                type='email'
+              />
+            )}
           />
-          <TextField
-            placeholder='Phone'
-            aria-label='Phone'
+          <Controller
+            control={control}
             name='phone'
-            type='tel'
-            isRequired={true}
+            rules={{ required: "Can’t be empty." }}
+            render={({
+              field: { name, value, onChange, onBlur, ref },
+              fieldState: { invalid, error },
+            }) => (
+              <TextField
+                ref={ref}
+                placeholder='Phone'
+                aria-label='Phone'
+                name={name}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+                isRequired={true}
+                isInvalid={invalid}
+                error={error}
+                type='tel'
+              />
+            )}
           />
-          <TextArea
-            placeholder='Your Message'
-            aria-label='Your Message'
+          <Controller
+            control={control}
             name='message'
-            type='text'
-            isRequired={true}
+            rules={{ required: "Can’t be empty." }}
+            render={({
+              field: { name, value, onChange, onBlur, ref },
+              fieldState: { invalid, error },
+            }) => (
+              <TextArea
+                ref={ref}
+                placeholder='Message'
+                aria-label='Message'
+                name={name}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+                isRequired={true}
+                isInvalid={invalid}
+                error={error}
+              />
+            )}
           />
           <ButtonWrapper>
             <Button type='submit'>Submit</Button>

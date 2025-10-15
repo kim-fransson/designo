@@ -11,13 +11,13 @@ import styled from "styled-components";
 import { WEIGHTS } from "@/constants";
 import { fadeIn } from "@/animations";
 
-function TextField({ placeholder, ...delegated }) {
+function TextField({ placeholder, error, ref, ...delegated }) {
   return (
-    <Wrapper {...delegated}>
+    <Wrapper validationBehavior='aria' {...delegated}>
       <InputWrapper>
-        <Input placeholder={placeholder} />
+        <Input ref={ref} placeholder={placeholder} />
         <FieldError>
-          Can’t be empty <ErrorIcon />
+          {error?.message} <ErrorIcon />
         </FieldError>
       </InputWrapper>
       <Divider />
@@ -89,6 +89,7 @@ const FieldError = styled(AriaFieldError)`
     flex-shrink: 0;
   }
 
+  // Could be I'm doing some weird flex stuff...
   @-moz-document url-prefix() {
     padding-right: 16px;
   }
