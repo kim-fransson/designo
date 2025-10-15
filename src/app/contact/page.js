@@ -65,7 +65,13 @@ export default function ContactUs() {
           <Controller
             control={control}
             name='email'
-            rules={{ required: "Can’t be empty." }}
+            rules={{
+              required: "Can’t be empty.",
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: "Invalid email",
+              },
+            }}
             render={({
               field: { name, value, onChange, onBlur, ref },
               fieldState: { invalid, error },
@@ -88,7 +94,13 @@ export default function ContactUs() {
           <Controller
             control={control}
             name='phone'
-            rules={{ required: "Can’t be empty." }}
+            rules={{
+              required: "Can’t be empty.",
+              pattern: {
+                value: /^\+?\d{6,15}$/,
+                message: "Invalid phone",
+              },
+            }}
             render={({
               field: { name, value, onChange, onBlur, ref },
               fieldState: { invalid, error },
