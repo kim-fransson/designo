@@ -17,7 +17,10 @@ function TextArea({ placeholder, ref, error, ...delegated }) {
       <InputWrapper>
         <TextAreaInput ref={ref} placeholder={placeholder} />
         <FieldError>
-          {error?.message} <ErrorIcon />
+          {error?.message}
+          <IconWrapper>
+            <ErrorIcon />
+          </IconWrapper>
         </FieldError>
       </InputWrapper>
       <Divider />
@@ -90,14 +93,8 @@ const FieldError = styled(AriaFieldError)`
   gap: 8px;
   padding-right: 16px;
   animation: ${fadeIn} 250ms ease-out both;
-
-  & svg {
-    flex-shrink: 0;
-  }
-
-  @-moz-document url-prefix() {
-    padding-right: 12px;
-  }
 `;
+
+const IconWrapper = styled.div``;
 
 export default TextArea;

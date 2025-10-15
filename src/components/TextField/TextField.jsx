@@ -17,7 +17,10 @@ function TextField({ placeholder, error, ref, ...delegated }) {
       <InputWrapper>
         <Input ref={ref} placeholder={placeholder} />
         <FieldError>
-          {error?.message} <ErrorIcon />
+          {error?.message}
+          <IconWrapper>
+            <ErrorIcon />
+          </IconWrapper>
         </FieldError>
       </InputWrapper>
       <Divider />
@@ -43,6 +46,7 @@ const Input = styled(AriaInput)`
   border: none;
   /*Don't quite love this, but following figma design*/
   outline: none;
+  flex: 1;
 
   font-weight: ${WEIGHTS.medium};
   font-size: ${15 / 16}rem;
@@ -79,20 +83,12 @@ const FieldError = styled(AriaFieldError)`
   font-size: ${12 / 16}rem;
   line-height: ${26 / 16}rem;
   color: var(--color-white);
-  white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 8px;
   animation: ${fadeIn} 250ms ease-out both;
-
-  & svg {
-    flex-shrink: 0;
-  }
-
-  // Could be I'm doing some weird flex stuff...
-  @-moz-document url-prefix() {
-    padding-right: 16px;
-  }
 `;
+
+const IconWrapper = styled.div``;
 
 export default TextField;
