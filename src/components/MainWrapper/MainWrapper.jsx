@@ -30,6 +30,11 @@ const Wrapper = styled.main`
   gap: 160px;
 
   @media ${QUERIES.phoneAndSmaller} {
+    gap: 120px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    gap: 96px;
     padding: 0px 24px;
   }
 `;

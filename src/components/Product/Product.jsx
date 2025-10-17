@@ -26,7 +26,7 @@ function Product({ product }) {
           alt=''
         />
       </VisuallyHidden>
-      <Wrapper>
+      <>
         <Header id={id} background={background}>
           <TitleWrapper>
             <Heading level={1}>{title}</Heading>
@@ -56,16 +56,10 @@ function Product({ product }) {
           ))}
         </ProductLinks>
         <Leaf />
-      </Wrapper>
+      </>
     </>
   );
 }
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 160px;
-`;
 
 const Header = styled.header`
   padding: 64px;
@@ -90,6 +84,11 @@ const Header = styled.header`
 
   background-repeat: repeat-y;
   border-radius: 15px;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    margin: 0 -24px;
+    border-radius: revert;
+  }
 `;
 const TitleWrapper = styled.div`
   text-align: center;
@@ -106,6 +105,11 @@ const ProjectList = styled.div`
 
   @media ${QUERIES.tabletAndSmaller} {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    gap: 40px;
   }
 `;
 
@@ -121,6 +125,7 @@ const ProductLinks = styled.div`
 
   @media ${QUERIES.phoneAndSmaller} {
     grid-template-rows: 327px 327px;
+    gap: 24px;
   }
 `;
 
