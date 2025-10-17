@@ -45,7 +45,6 @@ const ContentWrapper = styled(Dialog.Content)`
   top: 92px;
   right: 0;
   left: 0;
-  bottom: 0;
 
   @media (prefers-reduced-motion: no-preference) {
     animation: ${fadeIn} 500ms ease-out both;
