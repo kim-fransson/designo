@@ -12,7 +12,10 @@ function ProductLinks() {
           product.variant === "tall" ? TallProduct : Product;
         return (
           <ProductWrapper key={product.id}>
-            <ProductLink product={product} />
+            <ProductLink
+              product={product}
+              isTall={product.variant === "tall"}
+            />
           </ProductWrapper>
         );
       })}

@@ -1,21 +1,32 @@
-import { WEIGHTS } from "@/constants";
+import { QUERIES, WEIGHTS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import Heading from "../Heading";
 
-function ProductLink({ product }) {
+function ProductLink({ product, isTall = false }) {
   return (
     <Wrapper href={product.href}>
       <ImageWrapper>
-        <ProductImage
-          src={product.image}
-          width={product.width}
-          height={product.height}
-          alt=''
-          fill
-        />
+        <Picture>
+          <source
+            media={QUERIES.phoneAndSmaller}
+            srcSet={product.image.mobile}
+          />
+          <source
+            media={QUERIES.tabletAndSmaller}
+            srcSet={product.image.tablet}
+          />
+          <img
+            src={
+              isTall
+                ? product.image.desktop.large
+                : product.image.desktop
+            }
+            alt=''
+          />
+        </Picture>
       </ImageWrapper>
       <InnerProductWrapper>
         <HeadingWrapper>
@@ -117,9 +128,14 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const ProductImage = styled(Image)`
+const Picture = styled.picture`
   height: 100%;
-  object-fit: cover;
+  width: 100%;
+  & img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 `;
 
 export default ProductLink;

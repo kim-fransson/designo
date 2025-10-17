@@ -4,7 +4,14 @@ export const PRODUCTS = [
     title: "Web Design",
     description:
       "We build websites that serve as powerful marketing tools and bring memorable brand experiences.",
-    image: "/images/home/desktop/image-web-design-large.jpg",
+    image: {
+      mobile: "/images/home/mobile/image-web-design.jpg",
+      tablet: "/images/home/tablet/image-web-design.jpg",
+      desktop: {
+        small: "/images/home/desktop/image-web-design-small.jpg",
+        large: "/images/home/desktop/image-web-design-large.jpg",
+      },
+    },
     href: "/products/web",
     variant: "tall",
     background: "/images/web-design/desktop/bg-pattern-intro-web.svg",
@@ -59,7 +66,11 @@ export const PRODUCTS = [
     background: "/images/app-design/desktop/bg-pattern-intro-app.svg",
     description:
       "Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.",
-    image: "/images/home/desktop/image-app-design.jpg",
+    image: {
+      mobile: "/images/home/mobile/image-app-design.jpg",
+      tablet: "/images/home/tablet/image-app-design.jpg",
+      desktop: "/images/home/desktop/image-app-design.jpg",
+    },
     href: "/products/app",
     variant: "normal",
     projects: [
@@ -106,7 +117,11 @@ export const PRODUCTS = [
       "/images/graphic-design/desktop/bg-pattern-intro-graphic.svg",
     description:
       "We deliver eye-catching branding materials that are tailored to meet your business objectives.",
-    image: "/images/home/desktop/image-graphic-design.jpg",
+    image: {
+      mobile: "/images/home/mobile/image-graphic-design.jpg",
+      tablet: "/images/home/tablet/image-graphic-design.jpg",
+      desktop: "/images/home/desktop/image-graphic-design.jpg",
+    },
     href: "/products/design",
     variant: "normal",
     projects: [

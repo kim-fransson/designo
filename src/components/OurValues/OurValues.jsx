@@ -109,7 +109,7 @@ const ValueWrapper = styled.article`
   align-items: center;
   gap: 46px;
 
-  @container (min-width: ${600 / 16}rem) {
+  @container (min-width: ${700 / 16}rem) {
     flex-direction: row;
   }
 `;
@@ -119,7 +119,7 @@ const TextWrapper = styled.div`
   gap: 32px;
   flex-direction: column;
 
-  @container (min-width: ${600 / 16}rem) {
+  @container (min-width: ${700 / 16}rem) {
     gap: 16px;
     align-items: start;
   }
@@ -153,7 +153,7 @@ const TitleWrapper = styled.div`
 const Text = styled.p`
   text-align: center;
 
-  @container (min-width: ${600 / 16}rem) {
+  @container (min-width: ${700 / 16}rem) {
     text-align: left;
   }
 `;
