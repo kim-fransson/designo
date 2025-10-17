@@ -1,10 +1,10 @@
 import Product from "@/components/Product";
 import { TITLE } from "@/constants";
-import { getProductById, products } from "@/products";
+import { getProductById, PRODUCTS } from "@/products";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  return products.map((p) => ({ id: p.id }));
+  return PRODUCTS.map((p) => ({ id: p.id }));
 }
 
 export async function generateMetadata({ params }) {

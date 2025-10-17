@@ -137,4 +137,4 @@ export const PRODUCTS = [
 ];
 
 export const getProductById = (id) =>
-  products.find((p) => p.id === id);
+  PRODUCTS.find((p) => p.id === id);
