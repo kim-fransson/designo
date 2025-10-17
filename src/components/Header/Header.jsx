@@ -5,8 +5,17 @@ import Logo from "../Logo";
 import styled from "styled-components";
 import NavLink from "../NavLink";
 import { QUERIES } from "@/constants";
+import MobileMenu from "../MobileMenu";
+import CloseIcon from "@/assets/icon-close.svg";
+import MenuIcon from "@/assets/icon-hamburger.svg";
 
 function Header() {
+  const [showMobileMenu, setShowMobileMenu] = React.useState(false);
+
+  function toggleMobileMenu() {
+    setShowMobileMenu((current) => !current);
+  }
+
   return (
     <Wrapper>
       <Navigation>
@@ -18,7 +27,15 @@ function Header() {
           <NavLink href='/locations'>Locations</NavLink>
           <NavLink href='/contact'>Contact</NavLink>
         </LinksWrapper>
+        <GhostButton onClick={toggleMobileMenu}>
+          {showMobileMenu ? <CloseIcon /> : <MenuIcon />}
+        </GhostButton>
       </Navigation>
+
+      <MobileMenu
+        isOpen={showMobileMenu}
+        onDismiss={() => setShowMobileMenu(false)}
+      />
     </Wrapper>
   );
 }
@@ -51,6 +68,19 @@ const LinksWrapper = styled.div`
 
   @media ${QUERIES.phoneAndSmaller} {
     display: none;
+  }
+`;
+
+const GhostButton = styled.button`
+  cursor: pointer;
+  margin-left: auto;
+  background: none;
+  padding: 0px;
+  border: none;
+  display: none;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    display: revert;
   }
 `;
 
