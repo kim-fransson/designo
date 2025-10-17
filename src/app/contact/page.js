@@ -1,12 +1,13 @@
 "use client";
 
 import Button from "@/components/Button";
+import Heading from "@/components/Heading";
 import LeafBase from "@/components/Leaf";
 import LocationLink from "@/components/LocationLink";
 import TextArea from "@/components/TextArea";
 import TextField from "@/components/TextField";
 import VisuallyHidden from "@/components/VisuallyHidden";
-import { WEIGHTS } from "@/constants";
+import { QUERIES, WEIGHTS } from "@/constants";
 import { Form as AriaForm } from "react-aria-components";
 import { Controller, useForm } from "react-hook-form";
 import styled from "styled-components";
@@ -30,7 +31,7 @@ export default function ContactUs() {
     <>
       <Hero>
         <TextWrapper>
-          <Title>Contact Us</Title>
+          <Heading level={1}>Contact Us</Heading>
           <Text>
             Ready to take it to the next level? Let’s talk about your
             project or idea and find out how we can help your business
@@ -169,6 +170,21 @@ const Hero = styled.div`
   background-image: url("/images/contact/desktop/bg-pattern-hero-desktop.svg");
   background-position: left 100%;
   background-repeat: no-repeat;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    grid-template-columns: 1fr;
+    padding: 71px 58px;
+    gap: 40px;
+  }
+
+  @media ${QUERIES.tabletAndSmaller} {
+    padding: 72px 24px;
+    gap: 48px;
+    margin: 0px -24px;
+    border-radius: revert;
+    background-image: url("/images/contact/mobile/bg-pattern-hero-contact-mobile.svg");
+    background-position: 20% 0%;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -179,12 +195,15 @@ const TextWrapper = styled.div`
   align-self: center;
   /* optical alignment */
   margin-bottom: 40px;
-`;
 
-const Title = styled.h1`
-  font-weight: ${WEIGHTS.medium};
-  font-size: ${48 / 16}rem;
-  line-height: ${48 / 16}rem;
+  @media ${QUERIES.tabletAndSmaller} {
+    margin-bottom: revert;
+    gap: 25px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    text-align: center;
+  }
 `;
 
 const Text = styled.p`
@@ -199,11 +218,27 @@ const Form = styled(AriaForm)`
 
 const ButtonWrapper = styled.div`
   margin-left: auto;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    margin-left: revert;
+    margin-top: 15px;
+    align-self: center;
+  }
 `;
 
 const LocationLinks = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  @media ${QUERIES.tabletAndSmaller} {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
 `;
 
 const Leaf = styled(LeafBase)`

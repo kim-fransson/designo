@@ -1,13 +1,12 @@
 "use client";
 
-import { QUERIES, WEIGHTS } from "@/constants";
+import { QUERIES } from "@/constants";
 import React from "react";
 import styled from "styled-components";
 import { PRODUCTS } from "@/products";
 import ProductLink from "../ProductLink";
 import Project from "../Project";
 import VisuallyHidden from "../VisuallyHidden";
-import Image from "next/image";
 import LeafBase from "../Leaf";
 import Heading from "../Heading";
 
@@ -15,17 +14,6 @@ function Product({ product }) {
   const { title, description, id, background, projects } = product;
   return (
     <>
-      {/* priority fetch the background image for header */}
-      <VisuallyHidden>
-        <Image
-          priority={true}
-          fetchPriority='high'
-          src={background}
-          width={876}
-          height={584}
-          alt=''
-        />
-      </VisuallyHidden>
       <>
         <Header id={id} background={background}>
           <TitleWrapper>

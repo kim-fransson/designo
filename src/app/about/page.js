@@ -11,17 +11,6 @@ import styled, { css } from "styled-components";
 export default function About() {
   return (
     <>
-      {/* background image for hero */}
-      <VisuallyHidden>
-        <Image
-          src='/images/about/desktop/bg-pattern-hero-about-desktop.svg'
-          width={640}
-          height={640}
-          alt=''
-          priority={true}
-          fetchPriority='high'
-        />
-      </VisuallyHidden>
       <Hero>
         <InnerHeroWrapper>
           <HeroTitleWrapper>
@@ -181,6 +170,8 @@ const InnerHeroWrapper = styled.div`
 
   @media ${QUERIES.phoneAndSmaller} {
     padding: 80px 24px;
+    background-image: url("/images/about/mobile/bg-pattern-hero-about-mobile.svg");
+    background-position: 100% 25%;
   }
 `;
 

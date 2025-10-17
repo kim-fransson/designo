@@ -29,7 +29,7 @@ const Wrapper = styled.main`
   flex-direction: column;
   gap: 160px;
 
-  @media ${QUERIES.phoneAndSmaller} {
+  @media ${QUERIES.tabletAndSmaller} {
     gap: 120px;
   }
 
