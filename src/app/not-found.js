@@ -1,14 +1,17 @@
 "use client";
 import React from "react";
-import { WEIGHTS } from "@/constants";
+import { QUERIES, WEIGHTS } from "@/constants";
 
 import styled from "styled-components";
 import Image from "next/image";
+import Heading from "@/components/Heading";
 
 export default function NotFound() {
   return (
     <Wrapper>
-      <Title>404 Not Found</Title>
+      <TitleWrapper>
+        <Heading level={1}>404 Not Found</Heading>
+      </TitleWrapper>
       <Text>Oh no! Our site puppy has chewed up the page!</Text>
       <ImageWrapper>
         <Image
@@ -31,19 +34,31 @@ const Wrapper = styled.div`
   color: var(--color-dark-gray);
   padding: 154px 96px 154px 94px;
   border-radius: 15px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    position: revert;
+    padding: 80px 24px;
+  }
 `;
 
 const ImageWrapper = styled.div`
   position: absolute;
   transform: scale(0.5) translate(50%, -25%);
   right: 0;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    position: revert;
+    transform: revert;
+
+    & img {
+      height: 300px;
+      object-fit: contain;
+    }
+  }
 `;
 
-const Title = styled.h2`
+const TitleWrapper = styled.div`
   color: var(--color-peach);
-  font-weight: ${WEIGHTS.medium};
-  font-size: ${48 / 16}rem;
-  line-height: ${48 / 16}rem;
   text-align: center;
 `;
 
@@ -51,4 +66,5 @@ const Text = styled.p`
   color: var(--color-dark-gray);
   max-width: ${445 / 16}rem;
   text-align: center;
+  justify-self: center;
 `;
