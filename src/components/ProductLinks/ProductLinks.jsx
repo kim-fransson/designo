@@ -1,27 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import VisuallyHidden from "../VisuallyHidden";
-import { products } from "@/products";
+import { PRODUCTS } from "@/products";
 import ProductLink from "../ProductLink/ProductLink";
+import { QUERIES } from "@/constants";
 
 function ProductLinks() {
   return (
-    <>
-      <VisuallyHidden as='div'>
-        <h2>Our products</h2>
-      </VisuallyHidden>
-      <Wrapper>
-        {products.map((product) => {
-          const ProductWrapper =
-            product.variant === "tall" ? TallProduct : Product;
-          return (
-            <ProductWrapper key={product.id}>
-              <ProductLink product={product} />
-            </ProductWrapper>
-          );
-        })}
-      </Wrapper>
-    </>
+    <Wrapper>
+      {PRODUCTS.map((product) => {
+        const ProductWrapper =
+          product.variant === "tall" ? TallProduct : Product;
+        return (
+          <ProductWrapper key={product.id}>
+            <ProductLink product={product} />
+          </ProductWrapper>
+        );
+      })}
+    </Wrapper>
   );
 }
 
@@ -30,6 +25,16 @@ const Wrapper = styled.section`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 308px 308px;
   gap: 24px 30px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    grid-template-columns: 1fr;
+    grid-template-rows: revert;
+    grid-auto-rows: minmax(200px, auto);
+  }
+
+  @media ${QUERIES.tabletAndSmaller} {
+    grid-auto-rows: minmax(250px, auto);
+  }
 `;
 
 const Product = styled.div``;
@@ -37,6 +42,11 @@ const Product = styled.div``;
 const TallProduct = styled(Product)`
   grid-column: 1 / 1;
   grid-row: 1 / -1;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    grid-column: revert;
+    grid-row: revert;
+  }
 `;
 
 export default ProductLinks;

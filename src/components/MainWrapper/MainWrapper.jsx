@@ -5,6 +5,7 @@ import styled from "styled-components";
 import GetInTouch from "../GetInTouch";
 import { usePathname } from "next/navigation";
 import Spacer from "../Spacer";
+import { QUERIES } from "@/constants";
 
 function MainWrapper({ children }) {
   const pathname = usePathname();
@@ -27,10 +28,22 @@ const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   gap: 160px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    padding: 0px 40px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    padding: 0px 24px;
+  }
 `;
 
 const GetInTouchWrapper = styled.div`
   margin-bottom: -75px;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    margin-bottom: -194px;
+  }
 `;
 
 export default MainWrapper;

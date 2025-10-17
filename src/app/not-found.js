@@ -51,5 +51,4 @@ const Text = styled.p`
   color: var(--color-dark-gray);
   max-width: ${445 / 16}rem;
   text-align: center;
-  line-height: ${26 / 16}rem;
 `;

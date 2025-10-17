@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
+import Heading from "../Heading";
 
 function ProductLink({ product }) {
   return (
@@ -13,10 +14,13 @@ function ProductLink({ product }) {
           width={product.width}
           height={product.height}
           alt=''
+          fill
         />
       </ImageWrapper>
       <InnerProductWrapper>
-        <Title>{product.title}</Title>
+        <HeadingWrapper>
+          <Heading level={2}>{product.title}</Heading>
+        </HeadingWrapper>
         <TextWrapper>
           <Text href={product.href}>View projects</Text>
           <IconWrapper>
@@ -66,11 +70,7 @@ const InnerProductWrapper = styled.div`
   text-align: center;
 `;
 
-const Title = styled.h3`
-  font-weight: ${WEIGHTS.medium};
-  font-size: ${40 / 16}rem;
-  line-height: ${48 / 16}rem;
-  letter-spacing: ${2 / 16}rem;
+const HeadingWrapper = styled.div`
   color: var(--color-white);
   text-transform: uppercase;
 `;

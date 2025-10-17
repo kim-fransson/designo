@@ -1,11 +1,12 @@
 "use client";
 
-import { QUERIES, WEIGHTS } from "@/constants";
+import { QUERIES } from "@/constants";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import Button from "../Button";
 import Image from "next/image";
+import Heading from "../Heading";
 
 /*
   Currently there is contrast errors for Heading and Text
@@ -14,9 +15,12 @@ function LearnMore() {
   return (
     <Wrapper>
       <InnerWrapper>
-        <Heading>
-          Award-winning custom designs and digital branding solutions
-        </Heading>
+        <HeadingWrapper>
+          <Heading level={1}>
+            Award-winning custom designs and digital branding
+            solutions
+          </Heading>
+        </HeadingWrapper>
         <Text>
           With over 10 years in the industry, we are experienced in
           creating fully responsive websites, app design, and engaging
@@ -61,6 +65,9 @@ const Wrapper = styled.section`
     padding-right: 24px;
     padding-top: 60px;
     background-position: 150px 50%;
+
+    /* Main padding */
+    margin: 0 -40px;
   }
 
   @media ${QUERIES.phoneAndSmaller} {
@@ -69,6 +76,9 @@ const Wrapper = styled.section`
     padding-top: 80px;
     background-position: 0% 50%;
     border-radius: 0px;
+
+    /* Main padding */
+    margin: 0 -24px;
   }
 `;
 
@@ -85,10 +95,7 @@ const InnerWrapper = styled.div`
   }
 `;
 
-const Heading = styled.h2`
-  font-weight: ${WEIGHTS.medium};
-  font-size: clamp(2rem, 2vw + 1.25rem, 3rem);
-  line-height: clamp(2rem, 2vw + 1.25rem, 3rem);
+const HeadingWrapper = styled.div`
   margin-bottom: 32px;
 
   @media ${QUERIES.tabletAndSmaller} {
@@ -97,7 +104,6 @@ const Heading = styled.h2`
 `;
 
 const Text = styled.p`
-  line-height: ${26 / 16}rem;
   max-width: ${440 / 16}rem;
   margin-bottom: 40px;
 

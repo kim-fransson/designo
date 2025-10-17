@@ -1,16 +1,19 @@
 "use client";
 
-import { WEIGHTS } from "@/constants";
+import { QUERIES, WEIGHTS } from "@/constants";
 import React from "react";
 import styled from "styled-components";
 import Button from "../Button";
 import Link from "next/link";
+import Heading from "../Heading";
 
 function GetInTouch() {
   return (
     <Wrapper>
       <TextWrapper>
-        <Title>Let’s talk about your project</Title>
+        <TitleWrapper>
+          <Heading level={2}>Let’s talk about your project</Heading>
+        </TitleWrapper>
         <Text>
           Ready to take it to the next level? Contact us today and
           find out how our expertise can help your business grow.
@@ -36,23 +39,35 @@ const Wrapper = styled.section`
 
   border-radius: 15px;
   color: var(--color-white);
+
+  @media ${QUERIES.tabletAndSmaller} {
+    padding: 58px;
+
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    padding: 64px 24px;
+  }
 `;
 
 const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    align-items: center;
+    text-align: center;
+  }
 `;
 
-const Title = styled.h2`
-  font-weight: ${WEIGHTS.medium};
-  font-size: ${40 / 16}rem;
-  line-height: ${40 / 16}rem;
+const TitleWrapper = styled.div`
   max-width: ${268 / 16}rem;
 `;
 
 const Text = styled.p`
-  line-height: ${26 / 16}rem;
   max-width: ${459 / 16}rem;
 `;
 

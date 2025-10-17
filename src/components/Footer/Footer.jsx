@@ -5,7 +5,7 @@ import styled from "styled-components";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import NavLink from "../NavLink";
-import { WEIGHTS } from "@/constants";
+import { QUERIES, WEIGHTS } from "@/constants";
 import SocialLink from "../SocialLink";
 import { usePathname } from "next/navigation";
 
@@ -13,12 +13,11 @@ function Footer() {
   const pathname = usePathname();
   const showContactUs = pathname !== "/contact";
   return (
-    <Wrapper
-      style={{ "--padding-top": showContactUs ? "144px" : "72px" }}
-    >
+    <Wrapper showContactUs={showContactUs}>
       <MaxWidthWrapper as='div'>
         <TopRow>
           <Logo />
+          <MobileDivider />
           <LinksWrapper>
             <NavLink href='/about'>Our Company</NavLink>
             <NavLink href='/locations'>Locations</NavLink>
@@ -57,12 +56,25 @@ function Footer() {
 const Wrapper = styled.footer`
   background: var(--color-black);
   color: var(--color-white);
-  padding-top: var(--padding-top);
+  padding-top: ${(props) => (props.showContactUs ? "144px" : "72px")};
   padding-bottom: 72px;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    padding-top: ${(props) =>
+      props.showContactUs ? "253px" : "64px"};
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 64px;
+  }
 `;
 
 const TopRow = styled.nav`
   display: flex;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const LinksWrapper = styled.div`
@@ -72,6 +84,12 @@ const LinksWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 42px;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    flex-direction: column;
+    margin-left: revert;
+    gap: 32px;
+  }
 `;
 
 const Divider = styled.div`
@@ -80,11 +98,32 @@ const Divider = styled.div`
   width: 100%;
   background: var(--color-white);
   opacity: 10%;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    display: none;
+  }
+`;
+
+const MobileDivider = styled(Divider)`
+  margin: 32px 0px;
+  display: none;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    display: revert;
+  }
 `;
 
 const BottomRow = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  @media ${QUERIES.phoneAndSmaller} {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    justify-items: center;
+    text-align: center;
+    margin-top: 40px;
+  }
 `;
 
 const Location = styled.div`
@@ -94,7 +133,6 @@ const Location = styled.div`
 
 const Title = styled.p`
   font-weight: ${WEIGHTS.bold};
-  line-height: ${26 / 16}rem;
   opacity: 50%;
 `;
 
@@ -107,12 +145,10 @@ const ContactLink = styled.a`
   text-decoration: none;
   color: inherit;
   font-weight: ${WEIGHTS.bold};
-  line-height: ${26 / 16}rem;
   opacity: 50%;
 `;
 
 const Text = styled.p`
-  line-height: ${26 / 16}rem;
   opacity: 50%;
 `;
 
@@ -121,6 +157,11 @@ const SocialLinks = styled.div`
   gap: 18px;
   justify-self: end;
   align-self: end;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    justify-self: revert;
+    align-self: revert;
+  }
 `;
 
 export default Footer;

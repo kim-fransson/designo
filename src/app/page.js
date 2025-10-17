@@ -4,15 +4,11 @@ import Leaf from "@/components/Leaf";
 import LearnMore from "@/components/LearnMore";
 import OurValues from "@/components/OurValues";
 import ProductLinks from "@/components/ProductLinks";
-import VisuallyHidden from "@/components/VisuallyHidden";
 import styled from "styled-components";
 
 export default function Home() {
   return (
     <>
-      <VisuallyHidden as='div'>
-        <h1>Home</h1>
-      </VisuallyHidden>
       <LearnMore />
       <ProductLinks />
       <OurValues />

@@ -3,7 +3,7 @@
 import { WEIGHTS } from "@/constants";
 import React from "react";
 import styled from "styled-components";
-import { products } from "@/products";
+import { PRODUCTS } from "@/products";
 import ProductLink from "../ProductLink";
 import Project from "../Project";
 import VisuallyHidden from "../VisuallyHidden";
@@ -44,15 +44,13 @@ function Product({ product }) {
           <h2>Our other products</h2>
         </VisuallyHidden>
         <ProductLinks>
-          {products
-            .filter((p) => p.id !== id)
-            .map((otherProduct) => (
-              <ProductLink
-                key={otherProduct.id}
-                product={otherProduct}
-                renderTitleAs='h3'
-              />
-            ))}
+          {PRODUCTS.filter((p) => p.id !== id).map((otherProduct) => (
+            <ProductLink
+              key={otherProduct.id}
+              product={otherProduct}
+              renderTitleAs='h3'
+            />
+          ))}
         </ProductLinks>
         <Leaf />
       </Wrapper>
@@ -97,7 +95,6 @@ const Title = styled.h1`
   text-align: center;
 `;
 const Description = styled.p`
-  line-height: ${26 / 16}rem;
   text-align: center;
   max-width: ${400 / 16}rem;
 `;

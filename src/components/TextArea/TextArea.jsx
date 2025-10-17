@@ -51,14 +51,12 @@ const TextAreaInput = styled(AriaTextArea)`
 
   font-weight: ${WEIGHTS.medium};
   font-size: ${15 / 16}rem;
-  line-height: ${26 / 16}rem;
 
   color: var(--color-white);
 
   &::placeholder {
     font-weight: ${WEIGHTS.medium};
     font-size: ${15 / 16}rem;
-    line-height: ${26 / 16}rem;
 
     color: var(--color-white);
     opacity: 0.5;
@@ -86,7 +84,6 @@ const FieldError = styled(AriaFieldError)`
   right: 0;
   font-style: italic;
   font-size: ${12 / 16}rem;
-  line-height: ${26 / 16}rem;
   color: var(--color-white);
   display: flex;
   align-items: center;

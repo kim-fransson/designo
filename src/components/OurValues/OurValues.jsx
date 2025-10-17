@@ -1,18 +1,15 @@
 "use client";
 
-import { WEIGHTS } from "@/constants";
 import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
-import VisuallyHidden from "../VisuallyHidden";
+import Heading from "../Heading";
+import { QUERIES } from "@/constants";
 
 function OurValues() {
   return (
-    <>
-      <VisuallyHidden as='div'>
-        <h2>Our values</h2>
-      </VisuallyHidden>
-      <Wrapper>
+    <Wrapper>
+      <ValueContainer>
         <ValueWrapper>
           <PassionateImageWrapper>
             <Illustration
@@ -22,15 +19,21 @@ function OurValues() {
               alt=''
             />
           </PassionateImageWrapper>
-          <Title>Passionate</Title>
-          <Text>
-            Each project starts with an in-depth brand research to
-            ensure we only create products that serve a purpose. We
-            merge art, design, and technology into exciting new
-            solutions.
-          </Text>
+          <TextWrapper>
+            <TitleWrapper>
+              <Heading level={3}>Passionate</Heading>
+            </TitleWrapper>
+            <Text>
+              Each project starts with an in-depth brand research to
+              ensure we only create products that serve a purpose. We
+              merge art, design, and technology into exciting new
+              solutions.
+            </Text>
+          </TextWrapper>
         </ValueWrapper>
+      </ValueContainer>
 
+      <ValueContainer>
         <ValueWrapper>
           <ResourceFulImageWrapper>
             <Illustration
@@ -40,15 +43,21 @@ function OurValues() {
               alt=''
             />
           </ResourceFulImageWrapper>
-          <Title>Resourceful</Title>
-          <Text>
-            Everything that we do has a strategic purpose. We use an
-            agile approach in all of our projects and value customer
-            collaboration. It guarantees superior results that fulfill
-            our clients’ needs.
-          </Text>
+          <TextWrapper>
+            <TitleWrapper>
+              <Heading level={3}>Resourceful</Heading>
+            </TitleWrapper>
+            <Text>
+              Everything that we do has a strategic purpose. We use an
+              agile approach in all of our projects and value customer
+              collaboration. It guarantees superior results that
+              fulfill our clients’ needs.
+            </Text>
+          </TextWrapper>
         </ValueWrapper>
+      </ValueContainer>
 
+      <ValueContainer>
         <ValueWrapper>
           <FriendlyImageWrapper>
             <Illustration
@@ -58,30 +67,67 @@ function OurValues() {
               alt=''
             />
           </FriendlyImageWrapper>
-          <Title>Friendly</Title>
-          <Text>
-            We are a group of enthusiastic folks who know how to put
-            people first. Our success depends on our customers, and we
-            strive to give them the best experience a company can
-            provide.
-          </Text>
+          <TextWrapper>
+            <TitleWrapper>
+              <Heading level={3}>Friendly</Heading>
+            </TitleWrapper>
+            <Text>
+              We are a group of enthusiastic folks who know how to put
+              people first. Our success depends on our customers, and
+              we strive to give them the best experience a company can
+              provide.
+            </Text>
+          </TextWrapper>
         </ValueWrapper>
-      </Wrapper>
-    </>
+      </ValueContainer>
+    </Wrapper>
   );
 }
 
 const Wrapper = styled.section`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    gap: 80px;
+  }
+`;
+
+const ValueContainer = styled.div`
+  container-type: inline-size;
 `;
 
 const ValueWrapper = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 46px;
+
+  @container (min-width: ${600 / 16}rem) {
+    flex-direction: row;
+  }
 `;
+
+const TextWrapper = styled.div`
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+
+  @container (min-width: ${600 / 16}rem) {
+    gap: 16px;
+    align-items: start;
+  }
+`;
+
 const ImageWrapper = styled.div`
+  flex: 1;
+  min-width: 202px;
   background-image: url("/images/shared/desktop/bg-pattern-small-circle.svg");
 `;
 
@@ -100,19 +146,16 @@ const FriendlyImageWrapper = styled(ImageWrapper)`
 const Illustration = styled(Image)`
   transform: rotate(calc(-1 * var(--rotation-offset)));
 `;
-const Title = styled.h3`
-  margin-top: 46px;
-  font-weight: ${WEIGHTS.medium};
-  font-size: ${20 / 16}rem;
-  line-height: ${26 / 16}rem;
+const TitleWrapper = styled.div`
   text-align: center;
-  letter-spacing: ${5 / 16}rem;
   text-transform: uppercase;
 `;
 const Text = styled.p`
-  margin-top: 32px;
   text-align: center;
-  line-height: ${26 / 16}rem;
+
+  @container (min-width: ${600 / 16}rem) {
+    text-align: left;
+  }
 `;
 
 export default OurValues;

@@ -4,12 +4,15 @@ import React from "react";
 import Logo from "../Logo";
 import styled from "styled-components";
 import NavLink from "../NavLink";
+import { QUERIES } from "@/constants";
 
 function Header() {
   return (
     <Wrapper>
       <Navigation>
-        <Logo variant='dark' />
+        <LogoWrapper>
+          <Logo variant='dark' />
+        </LogoWrapper>
         <LinksWrapper>
           <NavLink href='/about'>Our Company</NavLink>
           <NavLink href='/locations'>Locations</NavLink>
@@ -21,25 +24,34 @@ function Header() {
 }
 
 const Wrapper = styled.header`
-  margin-top: 64px;
-  margin-bottom: 64px;
+  padding-top: 64px;
+  padding-bottom: 64px;
   display: flex;
   gap: 42px;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    padding: 34px 24px;
+  }
 `;
 
 const Navigation = styled.nav`
   width: 100%;
   display: flex;
-  gap: 42px;
+  gap: clamp(1rem, 4.6vw - 0.5rem, 2.6rem);
 `;
 
+const LogoWrapper = styled.div``;
+
 const LinksWrapper = styled.div`
-  /* optical alignment */
-  transform: translateY(1px);
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 42px;
+  gap: clamp(1rem, 4.6vw - 0.5rem, 2.6rem);
+  white-space: nowrap;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    display: none;
+  }
 `;
 
 export default Header;

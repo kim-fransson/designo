@@ -1,4 +1,4 @@
-export const products = [
+export const PRODUCTS = [
   {
     id: "web",
     title: "Web Design",
@@ -6,8 +6,6 @@ export const products = [
       "We build websites that serve as powerful marketing tools and bring memorable brand experiences.",
     image: "/images/home/desktop/image-web-design-large.jpg",
     href: "/products/web",
-    width: 541,
-    height: 640,
     variant: "tall",
     background: "/images/web-design/desktop/bg-pattern-intro-web.svg",
     projects: [
@@ -63,8 +61,6 @@ export const products = [
       "Our mobile designs bring intuitive digital solutions to your customers right at their fingertips.",
     image: "/images/home/desktop/image-app-design.jpg",
     href: "/products/app",
-    width: 541,
-    height: 308,
     variant: "normal",
     projects: [
       {
@@ -112,8 +108,6 @@ export const products = [
       "We deliver eye-catching branding materials that are tailored to meet your business objectives.",
     image: "/images/home/desktop/image-graphic-design.jpg",
     href: "/products/design",
-    width: 541,
-    height: 308,
     variant: "normal",
     projects: [
       {

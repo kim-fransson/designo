@@ -88,7 +88,6 @@ const RevealableTextWrapper = styled(TextWrapper)`
 const Title = styled.h3`
   font-weight: ${WEIGHTS.medium};
   font-size: ${20 / 16}rem;
-  line-height: ${26 / 16}rem;
   text-align: center;
   letter-spacing: ${5 / 16}rem;
   color: var(--color-peach);
@@ -99,7 +98,6 @@ const Title = styled.h3`
 `;
 const Description = styled.p`
   text-align: center;
-  line-height: ${26 / 16}rem;
 `;
 
 export default Project;

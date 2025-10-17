@@ -15,8 +15,8 @@ export const WEIGHTS = {
 };
 
 export const BREAKPOINTS = {
-  phone: 768,
-  tablet: 1200,
+  phone: 600,
+  tablet: 1100,
 };
 
 // desktop-first

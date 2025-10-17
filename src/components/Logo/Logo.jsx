@@ -21,7 +21,7 @@ function Logo({ variant = "light" }) {
 const ImageWrapper = styled(Image)`
   height: 24px;
   width: 196px;
-  object-fit: contain;
+  object-fit: cover;
 `;
 
 export default Logo;

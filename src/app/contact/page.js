@@ -188,7 +188,6 @@ const Title = styled.h1`
 `;
 
 const Text = styled.p`
-  line-height: ${26 / 16}rem;
   max-width: ${445 / 16}rem;
 `;
 

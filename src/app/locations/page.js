@@ -110,12 +110,9 @@ const Address = styled.div``;
 const Title = styled.h3`
   font-weight: ${WEIGHTS.bold};
   font-size: 1rem;
-  line-height: ${26 / 16}rem;
 `;
 
-const Text = styled.p`
-  line-height: ${26 / 16}rem;
-`;
+const Text = styled.p``;
 
 const ContactLinks = styled.div`
   display: flex;
@@ -125,7 +122,6 @@ const ContactLinks = styled.div`
 const ContactLink = styled.a`
   text-decoration: none;
   color: inherit;
-  line-height: ${26 / 16}rem;
 `;
 
 const ImageWrapper = styled.div`

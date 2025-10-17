@@ -69,7 +69,6 @@ const Title = styled.h3`
   margin-bottom: 32px;
   font-weight: ${WEIGHTS.medium};
   font-size: ${20 / 16}rem;
-  line-height: ${26 / 16}rem;
   text-align: center;
   letter-spacing: ${5 / 16}rem;
   text-transform: uppercase;

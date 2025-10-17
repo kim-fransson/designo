@@ -152,9 +152,7 @@ const HeroTitle = styled.h1`
   line-height: ${48 / 16}rem;
 `;
 
-const Text = styled.p`
-  line-height: ${26 / 16}rem;
-`;
+const Text = styled.p``;
 
 const HeroText = styled(Text)`
   max-width: ${458 / 16}rem;

@@ -1,7 +1,6 @@
 "use client";
 
 import { QUERIES } from "@/constants";
-import React from "react";
 import styled from "styled-components";
 
 const MaxWidthWrapper = styled.div`
