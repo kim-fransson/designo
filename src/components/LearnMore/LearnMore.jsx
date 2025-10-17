@@ -65,9 +65,6 @@ const Wrapper = styled.section`
     padding-right: 24px;
     padding-top: 60px;
     background-position: 150px 50%;
-
-    /* Main padding */
-    margin: 0 -40px;
   }
 
   @media ${QUERIES.phoneAndSmaller} {

@@ -1,47 +1,75 @@
 "use client";
 
-import { WEIGHTS } from "@/constants";
+import { QUERIES, WEIGHTS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
+import Heading from "../Heading";
 
 function Project({ title, description, imageSrc, slug }) {
   return (
-    <Wrapper href={`/projects/${slug}`}>
-      <ImageWrapper>
-        <Image src={imageSrc} width={700} height={640} alt='' />
-      </ImageWrapper>
-      <RevealableWrapper>
-        <TextWrapper>
-          <Title>{title}</Title>
-          <Description>{description}</Description>
-        </TextWrapper>
-        <RevealableTextWrapper>
-          <Title aria-hidden='true'>{title}</Title>
-          <Description aria-hidden='true'>{description}</Description>
-        </RevealableTextWrapper>
-      </RevealableWrapper>
-    </Wrapper>
+    <Container href={`/projects/${slug}`}>
+      <Wrapper>
+        <ImageWrapper>
+          <Image src={imageSrc} width={700} height={640} alt='' />
+        </ImageWrapper>
+        <RevealableWrapper>
+          <TextWrapper>
+            <TitleWrapper>
+              <Heading level={3}>{title}</Heading>
+            </TitleWrapper>
+            <Description>{description}</Description>
+          </TextWrapper>
+          <RevealableTextWrapper>
+            <TitleWrapper>
+              <Heading aria-hidden='true' level={3}>
+                {title}
+              </Heading>
+            </TitleWrapper>
+            <Description aria-hidden='true'>
+              {description}
+            </Description>
+          </RevealableTextWrapper>
+        </RevealableWrapper>
+      </Wrapper>
+    </Container>
   );
 }
 
-const Wrapper = styled(Link)`
+const Container = styled(Link)`
   border-radius: 15px;
-  display: flex;
-  flex-direction: column;
+
   /* show border radius */
   overflow: hidden;
   text-decoration: none;
   /* Better focus visibility */
   outline-offset: 4px;
+  container-type: inline-size;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @container (min-width: ${600 / 16}rem) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const ImageWrapper = styled.div`
+  flex: 1;
   height: 320px;
   & > img {
     height: 100%;
     object-fit: scale-down;
+  }
+
+  @media (${QUERIES.tabletAndSmaller}) {
+    & > img {
+      object-fit: cover;
+    }
   }
 `;
 
@@ -50,6 +78,7 @@ const RevealableWrapper = styled.div`
 `;
 
 const TextWrapper = styled.div`
+  height: 100%;
   display: flex;
   gap: 16px;
   padding: 32px;
@@ -57,6 +86,10 @@ const TextWrapper = styled.div`
   align-items: center;
   background: var(--color-very-light-peach);
   color: var(--color-dark-gray);
+
+  @container (min-width: ${600 / 16}rem) {
+    justify-content: center;
+  }
 `;
 
 const RevealableTextWrapper = styled(TextWrapper)`
@@ -68,7 +101,7 @@ const RevealableTextWrapper = styled(TextWrapper)`
   will-change: transform;
 
   @media (hover: hover) {
-    ${Wrapper}:hover &, ${Wrapper}:focus-visible & {
+    ${Container}:hover &, ${Container}:focus-visible & {
       clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
   }
@@ -78,18 +111,15 @@ const RevealableTextWrapper = styled(TextWrapper)`
   }
 
   @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-    ${Wrapper}:hover &, ${Wrapper}:focus-visible & {
+    ${Container}:hover &, ${Container}:focus-visible & {
       transition: clip-path 500ms ease;
       clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
   }
 `;
 
-const Title = styled.h3`
-  font-weight: ${WEIGHTS.medium};
-  font-size: ${20 / 16}rem;
+const TitleWrapper = styled.div`
   text-align: center;
-  letter-spacing: ${5 / 16}rem;
   color: var(--color-peach);
 
   ${RevealableTextWrapper} & {

@@ -1,6 +1,6 @@
 "use client";
 
-import { WEIGHTS } from "@/constants";
+import { QUERIES, WEIGHTS } from "@/constants";
 import React from "react";
 import styled from "styled-components";
 import { PRODUCTS } from "@/products";
@@ -9,6 +9,7 @@ import Project from "../Project";
 import VisuallyHidden from "../VisuallyHidden";
 import Image from "next/image";
 import LeafBase from "../Leaf";
+import Heading from "../Heading";
 
 function Product({ product }) {
   const { title, description, id, background, projects } = product;
@@ -27,7 +28,9 @@ function Product({ product }) {
       </VisuallyHidden>
       <Wrapper>
         <Header id={id} background={background}>
-          <Title>{title}</Title>
+          <TitleWrapper>
+            <Heading level={1}>{title}</Heading>
+          </TitleWrapper>
           <Description>{description}</Description>
         </Header>
 
@@ -88,10 +91,7 @@ const Header = styled.header`
   background-repeat: repeat-y;
   border-radius: 15px;
 `;
-const Title = styled.h1`
-  font-weight: ${WEIGHTS.medium};
-  font-size: ${48 / 16}rem;
-  line-height: ${48 / 16}rem;
+const TitleWrapper = styled.div`
   text-align: center;
 `;
 const Description = styled.p`
@@ -100,20 +100,28 @@ const Description = styled.p`
 `;
 
 const ProjectList = styled.div`
-  --min-column-width: min(325px, 100%);
   display: grid;
   gap: 32px 30px;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(var(--min-column-width), 1fr)
-  );
+  grid-template-columns: repeat(3, 1fr);
+
+  @media ${QUERIES.tabletAndSmaller} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ProductLinks = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 308px;
   gap: 30px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 200px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    grid-template-rows: 327px 327px;
+  }
 `;
 
 const Leaf = styled(LeafBase)`

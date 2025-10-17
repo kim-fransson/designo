@@ -29,10 +29,6 @@ const Wrapper = styled.main`
   flex-direction: column;
   gap: 160px;
 
-  @media ${QUERIES.tabletAndSmaller} {
-    padding: 0px 40px;
-  }
-
   @media ${QUERIES.phoneAndSmaller} {
     padding: 0px 24px;
   }
