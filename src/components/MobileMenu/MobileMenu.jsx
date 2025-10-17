@@ -13,9 +13,15 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
         <Overlay />
         <ContentWrapper>
           <Content>
-            <NavLink href='/about'>Our company</NavLink>
-            <NavLink href='/locations'>Locations</NavLink>
-            <NavLink href='/contact'>Contact</NavLink>
+            <NavLink href='/about' onClick={onDismiss}>
+              Our company
+            </NavLink>
+            <NavLink href='/locations' onClick={onDismiss}>
+              Locations
+            </NavLink>
+            <NavLink href='/contact' onClick={onDismiss}>
+              Contact
+            </NavLink>
           </Content>
         </ContentWrapper>
       </Dialog.Portal>
