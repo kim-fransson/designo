@@ -1,4 +1,4 @@
-export const locations = [
+export const LOCATIONS = [
   {
     id: "canada",
     country: "Canada",
@@ -8,7 +8,10 @@ export const locations = [
       phone: "+1 253-863-8967",
       email: "contact@designo.co",
     },
-    image: "/images/locations/desktop/image-map-canada.png",
+    image: {
+      tablet: "/images/locations/tablet/image-map-canada.png",
+      desktop: "/images/locations/desktop/image-map-canada.png",
+    },
     imagePosition: "right", // used to alternate layout if needed
   },
   {
@@ -20,7 +23,10 @@ export const locations = [
       phone: "(02) 6720 9092",
       email: "contact@designo.au",
     },
-    image: "/images/locations/desktop/image-map-australia.png",
+    image: {
+      tablet: "/images/locations/tablet/image-map-australia.png",
+      desktop: "/images/locations/desktop/image-map-australia.png",
+    },
     imagePosition: "left",
   },
   {
@@ -32,7 +38,11 @@ export const locations = [
       phone: "078 3115 1400",
       email: "contact@designo.uk",
     },
-    image: "/images/locations/desktop/image-map-united-kingdom.png",
+    image: {
+      tablet: "/images/locations/tablet/image-map-united-kingdom.png",
+      desktop:
+        "/images/locations/desktop/image-map-united-kingdom.png",
+    },
     imagePosition: "right",
   },
 ];

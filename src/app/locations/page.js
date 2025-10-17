@@ -1,10 +1,11 @@
 "use client";
 
 import VisuallyHidden from "@/components/VisuallyHidden";
-import { WEIGHTS } from "@/constants";
+import { QUERIES, WEIGHTS } from "@/constants";
 import Image from "next/image";
 import styled from "styled-components";
-import { locations } from "./locations";
+import { LOCATIONS } from "./locations";
+import Heading from "@/components/Heading";
 
 export default function Locations() {
   return (
@@ -14,21 +15,22 @@ export default function Locations() {
       </VisuallyHidden>
 
       <LocationsWrapper>
-        {locations.map((location) => (
+        {LOCATIONS.map((location) => (
           <LocationWrapper key={location.country}>
             {location.imagePosition === "left" && (
-              <ImageWrapper>
-                <Image
-                  src={location.image}
-                  alt=''
-                  width={375}
-                  height={320}
+              <Picture>
+                <source
+                  media={QUERIES.tabletAndSmaller}
+                  srcSet={location.image.tablet}
                 />
-              </ImageWrapper>
+                <img src={location.image.desktop} alt='' />
+              </Picture>
             )}
 
             <Location id={location.id}>
-              <Heading>{location.country}</Heading>
+              <HeadingWrapper>
+                <Heading level={2}>{location.country}</Heading>
+              </HeadingWrapper>
               <TextWrapper>
                 <Address>
                   <Title>{location.officeName}</Title>
@@ -52,14 +54,13 @@ export default function Locations() {
             </Location>
 
             {location.imagePosition === "right" && (
-              <ImageWrapper>
-                <Image
-                  src={location.image}
-                  alt=''
-                  width={375}
-                  height={320}
+              <Picture>
+                <source
+                  media={QUERIES.tabletAndSmaller}
+                  srcSet={location.image.tablet}
                 />
-              </ImageWrapper>
+                <img src={location.image.desktop} alt='' />
+              </Picture>
             )}
           </LocationWrapper>
         ))}
@@ -72,12 +73,28 @@ const LocationsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    gap: 120px;
+  }
 `;
 
 const LocationWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 326px;
+    gap: 24px;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    grid-auto-rows: 375px;
+    gap: 0px;
+    margin: 0 -24px;
+  }
 `;
 
 const Location = styled.div`
@@ -93,17 +110,35 @@ const Location = styled.div`
   background-repeat: no-repeat;
   background-position: left bottom;
   scroll-margin-top: 6rem;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    padding: 88px 75px;
+    grid-column: revert;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    border-radius: revert;
+    padding: 80px 24px;
+  }
 `;
 
-const Heading = styled.h2`
-  font-weight: ${WEIGHTS.medium};
-  font-size: ${40 / 16}rem;
-  line-height: ${48 / 16}rem;
+const HeadingWrapper = styled.div`
   color: var(--color-peach);
+
+  @media ${QUERIES.phoneAndSmaller} {
+    text-align: center;
+  }
 `;
 const TextWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    text-align: center;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 24px;
+  }
 `;
 const Address = styled.div``;
 
@@ -124,8 +159,24 @@ const ContactLink = styled.a`
   color: inherit;
 `;
 
-const ImageWrapper = styled.div`
+const Picture = styled.picture`
   border-radius: 15px;
   /* show borders */
   overflow: hidden;
+  height: 100%;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media ${QUERIES.tabletAndSmaller} {
+    grid-column: revert;
+    grid-row: 1;
+  }
+
+  @media ${QUERIES.phoneAndSmaller} {
+    border-radius: revert;
+  }
 `;
