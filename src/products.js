@@ -7,10 +7,8 @@ export const PRODUCTS = [
     image: {
       mobile: "/images/home/mobile/image-web-design.jpg",
       tablet: "/images/home/tablet/image-web-design.jpg",
-      desktop: {
-        small: "/images/home/desktop/image-web-design-small.jpg",
-        large: "/images/home/desktop/image-web-design-large.jpg",
-      },
+      large: "/images/home/desktop/image-web-design-large.jpg",
+      desktop: "/images/home/desktop/image-web-design.jpg",
     },
     href: "/products/web",
     variant: "tall",

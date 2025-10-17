@@ -19,11 +19,7 @@ function ProductLink({ product, isTall = false }) {
             srcSet={product.image.tablet}
           />
           <img
-            src={
-              isTall
-                ? product.image.desktop.large
-                : product.image.desktop
-            }
+            src={isTall ? product.image.large : product.image.desktop}
             alt=''
           />
         </Picture>
