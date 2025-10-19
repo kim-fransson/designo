@@ -64,7 +64,7 @@ const TextWrapper = styled.div`
 `;
 
 const TitleWrapper = styled.div`
-  max-width: ${268 / 16}rem;
+  max-width: ${300 / 16}rem;
 
   @media ${QUERIES.tabletAndSmaller} {
     max-width: ${335 / 16}rem;
