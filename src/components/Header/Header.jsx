@@ -8,6 +8,7 @@ import { QUERIES } from "@/constants";
 import MobileMenu from "../MobileMenu";
 import CloseIcon from "@/assets/icon-close.svg";
 import MenuIcon from "@/assets/icon-hamburger.svg";
+import VisuallyHidden from "../VisuallyHidden";
 
 function Header() {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -28,6 +29,9 @@ function Header() {
           <NavLink href='/contact'>Contact</NavLink>
         </LinksWrapper>
         <GhostButton onClick={toggleMobileMenu}>
+          <VisuallyHidden>
+            {showMobileMenu ? "Close menu" : "Open menu"}
+          </VisuallyHidden>
           {showMobileMenu ? <CloseIcon /> : <MenuIcon />}
         </GhostButton>
       </Navigation>
